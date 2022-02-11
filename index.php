@@ -2,7 +2,7 @@
 //This is my CONTROLLER
 
 //Turn on output buffering
-ob_start();
+/*ob_start();*/
 
 //Turn on error reporting
 ini_set('display_errors', 1);
@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 
 //Start the session
 session_start();
-var_dump($_SESSION);
+/*var_dump($_SESSION);*/
 
 //Require the autoload file
 require_once('vendor/autoload.php');
