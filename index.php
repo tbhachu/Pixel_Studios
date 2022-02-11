@@ -26,24 +26,24 @@ $f3->route('GET /', function() {
     echo $view->render('views/home.html');
 });
 
-//Define a breakfast route
-$f3->route('GET /breakfast', function() {
-    //echo "<h1>My Diner</h1>";
+//Define a cart route
+$f3->route('GET /cart', function() {
+    //echo "<h1>Shopping Cart</h1>";
 
     $view = new Template();
-    echo $view->render('views/breakfast-menu.html');
+    echo $view->render('views/cart.html');
 });
 
-//Define a lunch route
-$f3->route('GET /lunch', function() {
-    //echo "<h1>My Diner</h1>";
+//Define a about route
+$f3->route('GET /about', function() {
+    //echo "<h1>About Us</h1>";
 
     $view = new Template();
-    echo $view->render('views/lunch-menu.html');
+    echo $view->render('views/about.html');
 });
 
 //Define a route for order 1
-$f3->route('GET|POST /order1', function($f3) {
+/*$f3->route('GET|POST /order1', function($f3) {
     //echo "<h1>Order 1 Form</h1>";
 
     //If the form has been posted
@@ -61,10 +61,10 @@ $f3->route('GET|POST /order1', function($f3) {
 
     $view = new Template();
     echo $view->render('views/orderForm1.html');
-});
+});*/
 
 //Define a route for order 2
-$f3->route('GET|POST /order2', function($f3) {
+/*$f3->route('GET|POST /order2', function($f3) {
     //echo "<h1>Order 1 Form</h1>";
 
     //If the form has been posted
@@ -87,10 +87,10 @@ $f3->route('GET|POST /order2', function($f3) {
 
     $view = new Template();
     echo $view->render('views/orderForm2.html');
-});
+});*/
 
 //Define a summary route
-$f3->route('GET /summary', function() {
+/*$f3->route('GET /summary', function() {
     //echo "<h1>My Diner</h1>";
 
     $view = new Template();
@@ -98,7 +98,7 @@ $f3->route('GET /summary', function() {
 
     //Clear the session data
     session_destroy();
-});
+});*/
 
 //Run fat-free
 $f3->run();
