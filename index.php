@@ -27,15 +27,15 @@ $f3->route('GET /', function() {
 });
 
 //Define a cart route
-$f3->route('GET /cart', function() {
+$f3->route('GET /shopCart', function() {
     //echo "<h1>Shopping Cart</h1>";
 
     $view = new Template();
     echo $view->render('views/cart.html');
 });
 
-//Define a about route
-$f3->route('GET /about', function() {
+//Define an about route
+$f3->route('GET /aboutUs', function() {
     //echo "<h1>About Us</h1>";
 
     $view = new Template();
