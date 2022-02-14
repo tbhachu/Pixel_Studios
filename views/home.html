@@ -1,126 +1,77 @@
 <include href="views/header.html"></include>
 
-<body>
+<body id="main">
 
-<div class="container mx-auto px-0 min-vw-100">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong mx-0">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="#">PixelStudios</a>
+<div class="container mb-5 pb-5">
 
-            <!-- Toggle button -->
-            <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-mdb-toggle="collapse"
-                    data-mdb-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-            >
-                <i class="fas fa-bars"></i>
-            </button>
+    <!--carousel-->
+    <div class="slideshow mb-3 mx-1">
 
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <!-- Navbar dropdown -->
-                    <li class="nav-item dropdown">
-                        <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="navbarDropdown"
-                                role="button"
-                                data-mdb-toggle="dropdown"
-                                aria-expanded="false"
-                        >
-                            Dropdown
-                        </a>
-                        <!-- Dropdown menu -->
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="#">Action</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Another action</a>
-                            </li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-                        >Disabled</a
-                        >
-                    </li>
-                </ul>
-                <!-- Left links -->
-            </div>
-            <!-- Collapsible wrapper -->
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
+        <!-- navigation -->
+        <div class="navigation m-auto mt-2">
+            <nav class="navbar navbar-expand-sm text-right">
+
+                <a href="#" class="navbar-brand ">
+                    <img src="images/logo.png" width="200" height="200" alt="PixelStudios logo">
+                </a>
+                <button class="navbar-toggler" type="button"
+                        data-toggle="collapse" data-target="#myTogglerNav"
+                        aria-controls="myTogglerNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end pr-4" id="myTogglerNav">
+                    <div class="navbar-nav justify-content-center" id="navLinks">
+                        <a class="nav-item nav-link font-weight-bold h3" href="https://narrowsmith.greenriverdev.com/305/Resume/index.html">Cart</a>
+                        <a class="nav-item nav-link font-weight-bold h3" href="https://narrowsmith.greenriverdev.com/305/GuestBook/index.php" id="centerLink">About Us</a>
+                        <a class="nav-item nav-link font-weight-bold h3" href="https://github.com/narrowsmith419" target="_blank">Log In</a>
+                    </div><!-- navbar -->
+                </div><!-- collapse -->
+            </nav><!-- end nav -->
+        </div> <!-- end nav -->
 
 
-    <div id="demo" class="carousel slide" data-ride="carousel">
 
-       <!-- would like the nav bar nested -->
+        <!--<div class="frame p-3 m-2 shadow">-->
 
 
-        <!-- Indicators -->
-        <ul class="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-        </ul>
+            <div class="container py-3 border rounded " id="card">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100 slideImage" src="images/LONG_EXP_CAR.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100 slideImage" src="images/dundee graffiti.jpeg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100 slideImage" src="images/parismotorbike.jpeg" alt="Third slide">
+                        </div>
+                    </div>
+                </div>
 
-        <!-- The slideshow -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="images/cabby_crop.jpeg" class="img-fluid" alt="Cat">
-            </div>
-            <div class="carousel-item">
-                <img src="images/dundee graffiti.jpeg" class="img-fluid" alt="Graffiti">
-            </div>
-            <div class="carousel-item">
-                <img src="images/parismotorbike.jpeg" class="img-fluid" alt="Paris">
-            </div>
-        </div>
+            </div> <!-- end carousel card -->
 
-        <!-- Left and right controls -->
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
+        <!--</div> &lt;!&ndash; end frame &ndash;&gt;-->
 
     </div>
 
 
+    <!--Picture Info Card-->
+    <div class="row p-0 ">
+
+        <div class="col-sm-3 text-left border shadow ml-4 py-2 mt-3" id="plaque">
+            <p class="mb-0 pb-0 text-truncate h6" >"Title" sdfdsfsdgsdgsdgsdgsdgsdgsdgsdg</p>
+            <p class="mb-0 pb-0 h6">Artist</p>
+            <p class="mb-0">Year</p>
+        </div>
+
+    </div>
+
 </div>
 
 
-
-
-
-
-
-<p>These links are not working and I do not understand why</p>
-<a class="btn btn-info mb-3" href="shopCart" >Cart</a>
-<a class="btn btn-info mb-3" href="aboutUs" >About Us</a>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
