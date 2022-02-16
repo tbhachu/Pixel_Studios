@@ -21,7 +21,7 @@ a{
     color: whitesmoke;
 }
 
-a:hover{
+a:hover, #centerLink:hover {
     color:transparent;
 }
 
