@@ -9,7 +9,16 @@ a{
 }
 
 #centerLink{
-    color: lightskyblue;
+    color: #0192fc;
+}
+
+#buy{
+    color: #0192fc;
+}
+
+#hamburg{
+    background-color: #0192fc;
+    color: whitesmoke;
 }
 
 a:hover{
@@ -23,7 +32,7 @@ a:hover{
     width: 100%;
     height:80px;
     position: relative;
-    top: 95px;
+    top: 100px;
     z-index: 1;
     border-radius: 10px;
 }
@@ -37,14 +46,13 @@ a:hover{
 }
 
 #plaque{
-    background-color: white;
-    color: #383d41;
-
-    /*width: 100%;
-    height:80px;
+    background-color: transparent;
+    color: #f7f7f7;
+    width: 25%;
+    /*height:80px;*/
     position: relative;
-    top: 400px;
-    z-index: 2;*/
+    top: 730px;
+    z-index: 2;
 
 }
 

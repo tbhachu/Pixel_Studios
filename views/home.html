@@ -1,81 +1,80 @@
 <include href="views/header.html"></include>
 
-<body id="main">
+<body class="mb-3" id="main">
 
 <!--main container-->
-<!--<div class="container mb-5 pb-5 mx-auto">-->
 
-    <!--carousel-->
-    <div class="slideshow mb-3 mx-0">
+<!--carousel-->
+<div class="slideshow mb-3 mx-0 mt-1">
 
-        <!-- navigation -->
-        <div class="navigation m-auto mt-3">
-            <nav class="navbar navbar-expand-sm text-right mt-1">
+    <!-- navigation -->
+    <div class="navigation m-auto mt-3">
+        <nav class="navbar navbar-expand-sm text-right mt-1">
 
-                <a href="#" class="navbar-brand ">
-                    <img src="images/logo.png" width="100" height="55" alt="PixelStudios logo">
-                </a>
-                <button class="navbar-toggler" type="button"
-                        data-toggle="collapse" data-target="#myTogglerNav"
-                        aria-controls="myTogglerNav"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <a href="#" class="navbar-brand ">
+                <img src="images/logo.png" width="100" height="55" alt="PixelStudios logo">
+            </a>
+            <button class="navbar-toggler" type="button" id="hamburg"
+                    data-toggle="collapse" data-target="#myTogglerNav"
+                    aria-controls="myTogglerNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse justify-content-end pr-4" id="myTogglerNav">
-                    <div class="navbar-nav justify-content-center" id="navLinks">
-                        <a class="nav-item nav-link font-weight-bold h3" href="shopCart">Cart</a>
-                        <a class="nav-item nav-link font-weight-bold h3" href="aboutUs" id="centerLink">About Us</a>
-                        <a class="nav-item nav-link font-weight-bold h3" href="https://github.com/narrowsmith419" target="_blank">Log In</a>
-                    </div><!-- navbar -->
-                </div><!-- collapse -->
-            </nav><!-- end nav -->
-        </div> <!-- end nav -->
-
-
-
-        <!--<div class="frame p-3 m-2 shadow">-->
-
-
-            <!--<div class="container py-3 border rounded " id="card">-->
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100 slideImage" src="images/LONG_EXP_CAR.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100 slideImage" src="images/dundee graffiti.jpeg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100 slideImage" src="images/parismotorbike.jpeg" alt="Third slide">
-                        </div>
-                    </div>
-                </div>
-
-            <!--</div> &lt;!&ndash; end carousel card &ndash;&gt;-->
-
-        <!--</div> &lt;!&ndash; end frame &ndash;&gt;-->
-
-    </div>
+            <div class="collapse navbar-collapse justify-content-end pr-4" id="myTogglerNav">
+                <div class="navbar-nav justify-content-center pb-0 mb-0" id="navLinks">
+                    <a class="nav-item nav-link font-weight-bold h3" href="shopCart">Cart</a>
+                    <a class="nav-item nav-link font-weight-bold h3" href="aboutUs" id="centerLink">About Us</a>
+                    <a class="nav-item nav-link font-weight-bold h3" href="https://github.com/narrowsmith419"
+                       target="_blank">Log In</a>
+                </div><!-- navbar -->
+            </div><!-- collapse -->
+        </nav><!-- end nav -->
+    </div> <!-- end nav -->
 
 
     <!--Picture Info Card-->
-    <div class="row p-0">
+            <div class="col-xs-3 text-left border shadow ml-4 p-2 " id="plaque">
 
-        <div class="col-xs-3 text-left border shadow ml-4 p-2 mt-3" id="plaque">
-            <p class="mb-0 pb-0 text-truncate h6" >"Title" </p>
-            <p class="mb-0 pb-0 h6">Artist</p>
-            <p class="mb-0">Year</p>
+                    <a class="mb-0 pb-0 text-truncate h6">"Title", </a>
+                    <a class="mb-0 pb-0 h6">Artist</a>
+                <br>
+                    <a class="mb-0 pb-0">Year</a>
+                <div class="d-flex flex-row-reverse m-0 p-0">
+                    <a class="text-right h3 font-weight-bold pl-5" href="https://narrowsmith.greenriverdev.com/328/Pixel_Studios/"
+                       id="buy">buy print</a>
+                </div>
+
+            </div> <!-- end info card -->
+
+
+
+    <!-- Image carousel -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100 slideImage" src="images/LONG_EXP_CAR.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 slideImage" src="images/dundee graffiti.jpeg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 slideImage" src="images/parismotorbike.jpeg" alt="Third slide">
+            </div>
         </div>
-
     </div>
 
-<!--</div>-->
+</div>
 
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
