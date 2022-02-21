@@ -1,6 +1,6 @@
 
 #main{
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(35, 35, 35, 0.9);
     color: whitesmoke;
 }
 
@@ -9,6 +9,10 @@ a{
 }
 
 #centerLink{
+    color: #0192fc;
+}
+
+#prod {
     color: #0192fc;
 }
 
@@ -36,12 +40,13 @@ a:hover, #centerLink:hover {
 .navigation{
     /*background-color: #000;
     opacity: .5;*/
+    /* background-color: black; */
     width: 100%;
     height:80px;
     position: relative;
     top: 110px;
     z-index: 1;
-    border-radius: 10px;
+    /*border-radius: 10px; */
 }
 
 .slideshow{
@@ -84,4 +89,19 @@ img{
 
 }
 
+.bg-success {
+    background-color: black !important;
+}
 
+.text-center {
+    color: white;
+}
+
+.d-inline-block {
+    width: 125px;
+    height: 2px;
+}
+
+h6 {
+    color: #0192fc !important;
+}
