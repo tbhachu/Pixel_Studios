@@ -26,6 +26,14 @@ $f3->route('GET /', function() {
     echo $view->render('views/home.html');
 });
 
+//Define an product route
+$f3->route('GET /products', function() {
+    //echo "<h1>Products</h1>";
+
+    $view = new Template();
+    echo $view->render('views/products.html');
+});
+
 //Define a cart route
 $f3->route('GET /shopCart', function() {
     //echo "<h1>Shopping Cart</h1>";
