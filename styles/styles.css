@@ -1,3 +1,6 @@
+body{
+    background-color: black;
+}
 
 #main{
     background-color: rgba(35, 35, 35, 0.9);
@@ -40,22 +43,33 @@ a:hover, #centerLink:hover {
 .navigation{
     /*background-color: #000;
     opacity: .5;*/
-    /* background-color: black; */
+     background-color: black;
+    color: darkgray;
+
     width: 100%;
     height:80px;
     position: relative;
-    top: 110px;
-    z-index: 1;
+
+    top: -1px;
+
+    z-index: 3;
     /*border-radius: 10px; */
+}
+
+footer{
+    background-color: black;
 }
 
 .slideshow{
 
     width:100%;
     height:100%;
-    top: -110px;
+
+    top: -5px;
+
     position: relative;
-    z-index: 3;
+    /*z-index: 3;*/
+    z-index: 2;
 }
 
 #plaque{
@@ -64,14 +78,17 @@ a:hover, #centerLink:hover {
     width: 25%;
     /*height:80px;*/
     position: relative;
-    top: 730px;
-    z-index: 2;
+    /*top: 730px;*/
+    top: -160px;
+
+    z-index: 4;
+    border-radius: 4px;
 
 }
 
 #card{
     width: 100%;
-    background-color: white;
+    background-color: whitesmoke;
 
 }
 
@@ -94,7 +111,7 @@ img{
 }
 
 .text-center {
-    color: white;
+    color: darkgray;
 }
 
 .d-inline-block {
@@ -103,5 +120,28 @@ img{
 }
 
 h6 {
-    color: #0192fc !important;
+    color: #006dbd !important;
 }
+
+hr{
+    background-color: #006dbd;
+}
+
+.copyrightLine{
+    background-color: darkgray !important;
+}
+
+.footer-copyright{
+    color: darkgray !important
+
+}
+
+footer{
+    position: relative;
+    /*top: 730px;*/
+    top: -149px;
+
+    z-index: 4;
+
+}
+
