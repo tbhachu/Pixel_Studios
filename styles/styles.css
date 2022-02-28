@@ -36,7 +36,7 @@ a{
 }
 
 
-a:hover, #centerLink:hover {
+a:hover, #centerLink:hover, #prod:hover {
     color:transparent;
 }
 
@@ -67,7 +67,7 @@ footer{
 
     top: -5px;
 
-    position: relative;
+    position: absolute;
     /*z-index: 3;*/
     z-index: 2;
 }
@@ -110,7 +110,7 @@ img{
     background-color: black !important;
 }
 
-.text-center {
+.text-center, h1 {
     color: darkgray;
 }
 
@@ -137,9 +137,9 @@ hr{
 }
 
 footer{
-    position: relative;
+    position: absolute;
     /*top: 730px;*/
-    top: -149px;
+    top: 850px;
 
     z-index: 4;
 
