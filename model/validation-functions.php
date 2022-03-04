@@ -1,6 +1,6 @@
 <?php
 
-// 328/my-diner/model/validation-functions.php
+// 328/my-diner/model/validator.php
 
 function validFood($food)
 {
