@@ -1,7 +1,7 @@
 <?php
 
 
-class Member
+class Customer
 {
     //classes and functions go on different lines, decisions and loops, {} same line
     private $_fname;

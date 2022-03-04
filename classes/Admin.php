@@ -1,7 +1,7 @@
 <?php
 
 
-class PremiumMember extends Member
+class Admin extends Customer
 {
 
     private $_inDoorInterests;
