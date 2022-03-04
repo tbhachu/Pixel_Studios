@@ -17,13 +17,25 @@ require_once('vendor/autoload.php');
 
 //Create an instance of the Base class
 $f3 = Base::instance();
+$con = new Controller($f3);
+//$dataLayer = new DataLayer();
 
 //Define a default route
 $f3->route('GET /', function() {
     //echo "<h1>Pixel_Studios</h1>";
 
+    $GLOBALS['con']->home();
+
+    //$view = new Template();
+    //echo $view->render('views/home.html');
+});
+
+//Define an about us route
+$f3->route('GET /aboutUs', function() {
+    //echo "<h1>About Us</h1>";
+
     $view = new Template();
-    echo $view->render('views/home.html');
+    echo $view->render('views/about.html');
 });
 
 //Define an product route
@@ -42,13 +54,16 @@ $f3->route('GET /shopCart', function() {
     echo $view->render('views/cart.html');
 });
 
-//Define an about route
-$f3->route('GET /aboutUs', function() {
-    //echo "<h1>About Us</h1>";
+//Define a checkout route
+$f3->route('GET /checkout', function() {
+    //echo "<h1>Form</h1>";
 
     $view = new Template();
-    echo $view->render('views/about.html');
+    echo $view->render('views/checkout.html');
 });
+
+
+
 
 //Define a route for order 1
 /*$f3->route('GET|POST /order1', function($f3) {
@@ -97,8 +112,8 @@ $f3->route('GET /aboutUs', function() {
     echo $view->render('views/orderForm2.html');
 });*/
 
-//Define a summary route
-/*$f3->route('GET /summary', function() {
+// Define a summary route
+$f3->route('GET /summary', function() {
     //echo "<h1>My Diner</h1>";
 
     $view = new Template();
@@ -106,7 +121,7 @@ $f3->route('GET /aboutUs', function() {
 
     //Clear the session data
     session_destroy();
-});*/
+});
 
 //Run fat-free
 $f3->run();

@@ -13,12 +13,11 @@ class Controller
 
     function home()
     {
-
         $view = new Template();
         echo $view->render('views/home.html');
     }
 
-    function personal()
+    function products()
     {
         //Initialize input variables
         $fname = "";
@@ -121,7 +120,7 @@ class Controller
         echo $view->render('views/personal-info.html');
     }
 
-    function profile()
+    function cart()
     {
         //Initialize input variables
         $email = "";
@@ -200,7 +199,7 @@ class Controller
 
     }
 
-    function interests()
+    function about()
     {
         //Get the interests from the model and add to F3 hive
         $this->_f3->set('in', DataLayer::getIndoor());
@@ -274,7 +273,10 @@ class Controller
 
     }
 
+    function checkout()
+    {
 
+    }
 
     function summary()
     {
