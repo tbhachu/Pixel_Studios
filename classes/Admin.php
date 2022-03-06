@@ -4,72 +4,57 @@
 class Admin extends Customer
 {
 
-    private $_inDoorInterests;
-    private $_outDoorInterests;
+    private $_username;
+    private $_password;
 
     /**
      * default constructor with default values ( ="" )
      */
-    public function __construct($fname="", $lname="", $age="", $coat="", $phone="", $inDoorInterests=[""], $outDoorInterests=[""])
+    public function __construct($fname="", $lname="", $phone="", $email="", $address="", $state="", $username="", $password="" )
     {
         //call Member constructor
-        parent::__construct($fname, $lname, $age, $coat, $phone);
+        parent::__construct($fname, $lname, $phone, $email, $address, $state);
 
-        /*foreach($inDoorInterests as $value)
-        {
-            array_push($this->_inDoorInterests, $value);
-        }
 
-        foreach($outDoorInterests as $value)
-        {
-            array_push($this->_outDoorInterests, $value);
-        }*/
-
-        $this->_inDoorInterests = $inDoorInterests;
-        $this->_outDoorInterests = $outDoorInterests;
+        $this->_username = $username;
+        $this->_password = $password;
 
     }
 
     /**
-     * return inDoorInterests
-     * @return array
+     * return username
+     * @return string
      */
-    public function getInDoorInterests()
+    public function getUsername()
     {
-        return $this->_inDoorInterests;
+        return $this->_username;
     }
 
     /**
-     * set inDoorInterests
-     * @param array $inDoorInterests
+     * set first name
+     * @param string $username
      */
-    public function setInDoorInterests($inDoorInterests)
+    public function setUsername($username)
     {
-        foreach($inDoorInterests as $value)
-        {
-            array_push($this->_inDoorInterests, $value);
-        }
+        $this->_username = $username;
     }
 
     /**
-     * return outDoorInterests
-     * @return array
+     * return password
+     * @return string
      */
-    public function getOutDoorInterests()
+    public function getPassword()
     {
-        return $this->_outDoorInterests;
+        return $this->_password;
     }
 
     /**
-     * set outDoorInterests
-     * @param array $outDoorInterests
+     * set password
+     * @param string $password
      */
-    public function setOutDoorInterests($outDoorInterests)
+    public function setPassword($password)
     {
-        foreach($outDoorInterests as $value)
-        {
-            array_push($this->_outDoorInterests, $value);
-        }
+        $this->_password = $password;
     }
 
 
