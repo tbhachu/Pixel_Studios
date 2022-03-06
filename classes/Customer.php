@@ -6,24 +6,24 @@ class Customer
     //classes and functions go on different lines, decisions and loops, {} same line
     private $_fname;
     private $_lname;
-    private $_age;
-    private $_coat;
     private $_phone;
     private $_email;
+    private $_address;
     private $_state;
-    private $_seekCoat;
-    private $_bio;
+
+
 
     /**
      * default constructor with default values ( ="" )
      */
-    public function __construct($fname="", $lname="", $age="", $coat="", $phone="")
+    public function __construct($fname="", $lname="", $phone="", $email="", $address="", $state="")
     {
         $this->_fname = $fname;
         $this->_lname = $lname;
-        $this->_age = $age;
-        $this->_coat = $coat;
         $this->_phone = $phone;
+        $this->_email = $email;
+        $this->_address = $address;
+        $this->_state = $state;
     }
 
 
@@ -63,41 +63,6 @@ class Customer
         $this->_lname = $lname;
     }
 
-    /**
-     * return age
-     * @return int
-     */
-    public function getAge()
-    {
-        return $this->_age;
-    }
-
-    /**
-     * set age
-     * @param int $age
-     */
-    public function setAge($age)
-    {
-        $this->_age = $age;
-    }
-
-    /**
-     * return coat type
-     * @return string
-     */
-    public function getCoat()
-    {
-        return $this->_coat;
-    }
-
-    /**
-     * set coat type
-     * @param string $coat
-     */
-    public function setCoat($coat)
-    {
-        $this->_coat = $coat;
-    }
 
     /**
      * return phone number
@@ -153,40 +118,23 @@ class Customer
         $this->_state = $state;
     }
 
-    /**
-     * return seeking coat
-     * @return string
-     */
-    public function getSeekCoat()
-    {
-        return $this->_seekCoat;
-    }
-
-    /**
-     * set seeking coat
-     * @param string $seekCoat
-     */
-    public function setSeekCoat($seekCoat)
-    {
-        $this->_seekCoat = $seekCoat;
-    }
 
     /**
      * return bio
      * @return string
      */
-    public function getBio()
+    public function getAddress()
     {
-        return $this->_bio;
+        return $this->_address;
     }
 
     /**
      * set bio
-     * @param string $bio
+     * @param string $address
      */
-    public function setBio($bio)
+    public function setBio($address)
     {
-        $this->_bio = $bio;
+        $this->_address = $address;
     }
 
 
