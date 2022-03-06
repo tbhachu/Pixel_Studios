@@ -51,7 +51,6 @@ class Controller
     function summary()
     {
 
-
         //TODO: Send data to the model
         $GLOBALS['dataLayer']->saveOrder($_SESSION['order']);
 
