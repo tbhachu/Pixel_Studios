@@ -9,23 +9,28 @@
 
             <!-- use fat free to populate this page, generate from an array -->
 
-            <div class="col-sm-4">
-                <div class="mb-3">
-                    <div class="card-body p-2">
-                        <img class="card-img-top" src="images/dundee graffiti.jpeg" alt="Photo1">
-                        <h3 class="productTitle mt-2">"Title"</h3>
-                        <p class="lead productDescription">Some text about the photo..</p>
-                        <p class="text-right">
-                            <button class="btn btn-success" id="product" type="submit">
-                                Add to Cart</button>
-                        </p>
+            <repeat group="{{ @products }}" value="{{ @product }}">
+
+
+
+                <div class="col-sm-4">
+                    <div class="mb-3">
+                        <div class="card-body p-2">
+                            <img class="card-img-top" src="{{ @product['Link'] }}" alt="{{ @product['Title'] }}">
+                            <h3 class="productTitle mt-2">" {{ @product['Title'] }} "</h3>
+                            <p class="lead productDescription">{{ @product['Info'] }}</p>
+                            <p class="text-right">
+                                <button class="btn btn-success" id="{{ @product['Title'] }}" type="submit">
+                                    Add to Cart</button>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            </repeat>
 
 
-
-            <div class="col-sm-4">
+            <!--<div class="col-sm-4">
                 <div class="mb-3">
                     <div class="card-body p-2">
                         <img class="card-img-top" src="images/LONG_EXP_CAR.jpg" alt="Photo2">
@@ -143,7 +148,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
 
