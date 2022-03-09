@@ -19,6 +19,9 @@ class Controller
 
     function products()
     {
+        //Get the data from the model
+        $products = $GLOBALS['dataLayer']->getProducts();
+        $this->_f3->set('products', $products);
 
         $view = new Template();
         echo $view->render('views/products.html');
