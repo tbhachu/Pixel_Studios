@@ -18,7 +18,7 @@ require_once('vendor/autoload.php');
 //Create an instance of the Base class
 $f3 = Base::instance();
 $con = new Controller($f3);
-//$dataLayer = new DataLayer();
+$dataLayer = new DataLayer();
 
 //Define a default route
 $f3->route('GET /', function() {
