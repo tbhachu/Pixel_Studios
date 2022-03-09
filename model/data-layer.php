@@ -1,11 +1,46 @@
 <?php
 
+//Require the database credentials
+require_once $_SERVER['DOCUMENT_ROOT'].'/../pdo-config.php';
 
-
+/**
+ * Class DataLayer accesses data needed for the Pixel Studios
+ */
 class DataLayer
 {
     // Add a field to store database connection object
     private $_dbh;
+
+    //Define a default constructor
+    function __construct()
+    {
+        try {
+            //Instantiate a PDO database object
+            $this->_dbh = new PDO (DB_DSN, DB_USERNAME, DB_PASSWORD);
+            echo "Connection Succesful";
+        }
+        catch (PDOException $e) {
+            echo "Error connecting to DB " . $e->getMessage();
+        }
+    }
+
+    function getProducts()
+    {
+        //1. Define the query
+        $sql = "SELECT * FROM Products";
+
+        //2. Prepare the statement
+        $statement = $this->_dbh->prepare($sql);
+
+        //3. Bind the parameters
+
+        //4. Execute the query
+        $statement->execute();
+
+        //5. Process the results (get the primary key)
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
     /**
      * Return an array of frame sizes
