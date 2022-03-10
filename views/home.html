@@ -9,26 +9,26 @@
              <!-- end info card -->
 
     <!-- Image carousel -->
-    <div id="carouselSlides" class="carousel slide" data-ride="carousel">
+    <div id="carouselSlides" class="carousel slide" data-ride="carousel" onload="setActive()">
         <div class="carousel-inner">
 
-            <!-- begin with same image -->
-            <!--<div class="carousel-item active">
-                <img class="d-block w-100 slideImage" src="images/LONG_EXP_CAR.jpg" alt="First slide">
+
+            <div class="carousel-item active">
+                <img class="d-block w-100 slideImage" src="images/LONG_EXP_CAR.jpg" alt="Car">
                 <div class="carousel-caption d-none d-md-block text-left">
-                    <h4> Title.. </h4>
-                    <p> extra info... </p>
+                    <h4> "Car" </h4>
+                    <p> F/22 | 25s EXP | ISO-140 </p>
                     <a class="text-right h3 font-weight-bold m-0" href="https://narrowsmith.greenriverdev.com/328/Pixel_Studios/"
-                       id="buy">
+                       id="buy1">
                         <img src="images/buyprint.png" class="m-0" width="170" height="55" alt="buy-print logo">
                     </a>
                 </div>
-            </div>-->
+            </div>
 
             <!-- repeat -->
             <repeat group="{{ @products }}" value="{{ @product }}">
 
-                <div class="carousel-item  ">
+                <div class="carousel-item" id="{{ @product['ImgID'] }}">
                     <img class="d-block w-100 slideImage" src="{{ @product['Link'] }}" alt="{{ @product['Title'] }}">
                     <div class="carousel-caption d-none d-md-block text-left">
                         <h4> "{{ @product['Title'] }}" </h4>
@@ -41,14 +41,6 @@
                 </div>
 
             </repeat>
-
-            <script>
-                $(document).ready(function()
-                {
-                    $('#carouselSlides').find('.carousel-item').first().addClass('active');
-                });
-            </script>
-
 
         </div>
     </div>
