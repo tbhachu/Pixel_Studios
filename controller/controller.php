@@ -34,6 +34,14 @@ class Controller
     function cart()
     {
 
+        //If the form has been posted
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Redirect user to Checkout Page
+            $this->_f3->reroute('views/checkout.html');
+        }
+
+
+
         $view = new Template();
         echo $view->render('views/cart.html');
 
