@@ -43,6 +43,34 @@ class DataLayer
     }
 
     /**
+     * saveOrder accepts an Order object and inserts it into the DB
+     * @param $order An Order object
+     * @return string The order_id of the inserted row
+     */
+    function saveOrder($order)
+    {
+        //1. Define the query
+        $sql = "INSERT INTO diner_order (item, meal, condiments)
+                VALUES (:food, :meal, :condiments)";
+
+        //2. Prepare the statement
+        $statement = $this->_dbh->prepare($sql);
+
+        //3. Bind the parameters
+        $statement->bindParam(':food', $order->getFood());
+        $statement->bindParam(':meal', $order->getMeal());
+        $statement->bindParam(':condiments', $order->getCondiments());
+
+        //4. Execute the query
+        $statement->execute();
+
+        //5. Process the results (get the primary key)
+        $id = $this->_dbh->lastInsertId();
+        return $id;
+
+    }
+
+    /**
      * Return an array of frame sizes
      * @return string[]
      */
