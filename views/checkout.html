@@ -5,7 +5,45 @@
     <title>Checkout</title>
 </head>
 <body>
-    <h1>Form Page</h1>
+
+<div class="container">
+    <h1>Profile Summary</h1>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Information</h3>
+            <fieldset>
+                <legend class="align-center">Contact Info</legend>
+                <p>
+                    <input type="text" id="fname" name="fname" placeholder="First Name" class="form-control col-sm-5">
+                    <input type="text" id="lname" name="lname" placeholder="Last Name" class="form-control col-sm-5">
+                    <input type="text" id="address" name="address" placeholder="Shipping Address" class="form-control col-sm-5"><br>
+                    <input type="text" id="email" name="email" placeholder="Email Address" class="form-control col-sm-5">
+                </p>
+            </fieldset>
+
+        </div>
+
+        <div class="col-sm-6" id="divSummary">
+            <b>Summary</b>
+            <hr>
+
+            <p>{{ @SESSION.product->getTitle() }}</p>
+            <p>{{ @SESSION.product->getSize() }}</p>
+            <p>{{ @SESSION.product->getFrame() }}</p>
+            <p>{{ @SESSION.product->getFinish() }}</p>
+            <p>{{ @SESSION.product->getPrice() }}</p>
+            <p>{{ @SESSION.product->getTitle() }}</p>
+            <hr>
+            <p>SubTotal: {{ }}</p>
+            <p>Shipping: </p>
+            <p>Tax: </p>
+            <p>Total: </p>
+        </div>
+    </div>
+
+    <a href="{{ @BASE }}">Home Page</a>
+</div>
 
 </body>
 </html>
