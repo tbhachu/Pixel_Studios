@@ -9,21 +9,51 @@
              <!-- end info card -->
 
     <!-- Image carousel -->
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div id="carouselSlides" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+
+            <!-- begin with same image -->
+            <!--<div class="carousel-item active">
                 <img class="d-block w-100 slideImage" src="images/LONG_EXP_CAR.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100 slideImage" src="images/dundee graffiti.jpeg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100 slideImage" src="images/parismotorbike.jpeg" alt="Third slide">
-            </div>
+                <div class="carousel-caption d-none d-md-block text-left">
+                    <h4> Title.. </h4>
+                    <p> extra info... </p>
+                    <a class="text-right h3 font-weight-bold m-0" href="https://narrowsmith.greenriverdev.com/328/Pixel_Studios/"
+                       id="buy">
+                        <img src="images/buyprint.png" class="m-0" width="170" height="55" alt="buy-print logo">
+                    </a>
+                </div>
+            </div>-->
+
+            <!-- repeat -->
+            <repeat group="{{ @products }}" value="{{ @product }}">
+
+                <div class="carousel-item  ">
+                    <img class="d-block w-100 slideImage" src="{{ @product['Link'] }}" alt="{{ @product['Title'] }}">
+                    <div class="carousel-caption d-none d-md-block text-left">
+                        <h4> "{{ @product['Title'] }}" </h4>
+                        <p> {{ @product['Info'] }} </p>
+                        <a class="text-right h3 font-weight-bold m-0" href="https://narrowsmith.greenriverdev.com/328/Pixel_Studios/"
+                           id="buy">
+                            <img src="images/buyprint.png" class="m-0" width="170" height="55" alt="buy-print logo">
+                        </a>
+                    </div>
+                </div>
+
+            </repeat>
+
+            <script>
+                $(document).ready(function()
+                {
+                    $('#carouselSlides').find('.carousel-item').first().addClass('active');
+                });
+            </script>
+
+
         </div>
     </div>
 
-    <div class="col-xs-3 text-left border shadow ml-4 p-2 " id="plaque">
+    <!--<div class="col-xs-3 text-left border shadow ml-4 p-2 " id="plaque">
 
         <a class="mb-0 pb-0 text-truncate h6">"Title", </a>
         <a class="mb-0 pb-0 h6">Artist</a>
@@ -32,11 +62,11 @@
         <div class="d-flex flex-row-reverse m-0 p-0">
             <a class="text-right h3 font-weight-bold m-0" href="https://narrowsmith.greenriverdev.com/328/Pixel_Studios/"
                id="buy">
-                <img src="images/buyprint.png" class="m-0" width="170" height="55" alt="FaceBook logo">
+                <img src="images/buyprint.png" class="m-0" width="170" height="55" alt="buy-print logo">
             </a>
         </div>
 
-    </div>
+    </div>-->
 
 </div>
 
