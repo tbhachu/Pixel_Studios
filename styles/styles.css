@@ -169,3 +169,12 @@ footer{
     color: yellowgreen;
 }
 
+#about {
+    background-image: url("../images/morning.jpg");
+    background-size: 100%;
+}
+
+#aboutP {
+    color: white;
+}
+
