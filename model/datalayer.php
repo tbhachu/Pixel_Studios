@@ -87,17 +87,6 @@ class DataLayer
         return array('F/22 | 25s EXP | ISO-140', 'F/9 | 1/80s EXP | ISO-320', 'F/4 | 1/160s EXP | ISO-6400');
     }
 
-    /**
-     * @return array[] this will eventually be replaced with database grabs
-     */
-    static function getProductDetails()
-    {
-        return array (
-            array (self::getImages()[0], self::getTitles()[0], self::getInfo()[0]),
-            array (self::getImages()[1], self::getTitles()[1], self::getInfo()[1]),
-            array (self::getImages()[2], self::getTitles()[2], self::getInfo()[2])
-        );
-    }
 
     /**
      * Return an array of image prices
@@ -106,30 +95,6 @@ class DataLayer
     static function getPrice()
     {
         return array('19.99', '29.99', '49.99','64.99');
-    }
-
-    static function product_card ($link, $title, $info)
-    {
-        echo "<div class='col-sm-4'>
-                <div class='mb-3'>
-                    <div class='card-body p-2'>
-                        <img class='card-img-top' src='$link' alt=''$title'>
-                        <h3 class='productTitle mt-2'>'$title'</h3>
-                        <p class='lead productDescription'>$info</p>
-                        <p class='text-right'>
-                            <button class='btn btn-success' id='product' type='submit'>
-                                Add to Cart</button>
-                        </p>
-                    </div>
-                </div>
-            </div>";
-    }
-
-    static function output_product_card()
-    {
-        self::product_card(self::getImages()[0], self::getTitles()[0], self::getInfo()[0]);
-        self::product_card(self::getImages()[1], self::getTitles()[1], self::getInfo()[1]);
-        self::product_card(self::getImages()[2], self::getTitles()[2], self::getInfo()[2]);
     }
 
 
