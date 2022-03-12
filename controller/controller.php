@@ -27,6 +27,25 @@ class Controller
         $products = $GLOBALS['dataLayer']->getProducts();
         $this->_f3->set('products', $products);
 
+        $title = "";
+        $link = "";
+
+        //if the form has been posted
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            $title = $_POST['title'];
+            $link = $_POST['link'];
+
+            //instantiate item object
+            $_SESSION['item'] = new Item();
+
+            $_SESSION['item']->setTitle($title);
+            $_SESSION['item']->setLink($link);
+
+            $this->_f3->reroute('addToCart');
+
+        }
+
         $view = new Template();
         echo $view->render('views/products.html');
     }
@@ -38,8 +57,8 @@ class Controller
         $this->_f3->set('products', $products);
 
         //Initialize input variables
-        $title = "";
-        $link = "";
+        //$title = "";
+        //$link = "";
         $size = "";
         $frame = "";
         $finish = "";
@@ -50,8 +69,8 @@ class Controller
         {
 
             //title and link will already be generated
-            $title = $_POST['title'];
-            $link = $_POST['link'];
+            /*$title = $_POST['title'];
+            $link = $_POST['link'];*/
 
             $size = $_POST['size'];
             $frame = $_POST['frame'];
@@ -59,80 +78,46 @@ class Controller
 
             //$price = $_POST['price'];
 
-            //instantiate item object
-            $_SESSION['item'] = new Item();
-
-
             //Validate the data
-            if(Validator::validName($fname)) {
+            if(Validator::validSizes($size)) {
 
                 //Add the data to the session variable
-                $_SESSION['member']->setFirstName($fname);
+                $_SESSION['item']->setSize($size);
             }
             else {
 
                 //Set an error
-                $this->_f3->set('errors["fname"]', 'Please enter a valid First Name');
+                $this->_f3->set('errors["size"]', 'Please enter a valid image size');
             }
 
             //Validate the data
-            if(Validator::validName($lname)) {
+            if(Validator::validFrames($frame)) {
 
                 //Add the data to the session variable
-                $_SESSION['member']->setLastName($lname);
+                $_SESSION['item']->setFrame($frame);
             }
             else {
 
                 //Set an error
-                $this->_f3->set('errors["lname"]', 'Please enter a valid Last Name');
+                $this->_f3->set('errors["frame"]', 'Please enter a valid frame type');
             }
 
-            //Validate the data
-            if(Validator::validAge($age)) {
 
-                //Add the data to the session variable
-                $_SESSION['member']->setAge($age);
-            }
-            else {
-
-                //Set an error
-                $this->_f3->set('errors["age"]', 'Please enter a valid Age');
-            }
-
-            if(Validator::validCoat($coat)) {
-
-                //Add the data to the session variable
-                $_SESSION['member']->setCoat($coat);
-            }
-
-            //Validate the data
-            if(Validator::validPhone($number)) {
-
-                //Add the data to the session variable
-                $_SESSION['member']->setPhone($number);
-            }
-            else {
-
-                //Set an error
-                $this->_f3->set('errors["number"]', 'Please enter a valid phone number');
-            }
-
-            //Redirect user to next page if there are no errors
+            //Redirect user to product page if there are no errors
             if (empty($this->_f3->get('errors'))) {
-                $this->_f3->reroute('profile');
+                $this->_f3->reroute('products');
             }
 
         }
 
-        $this->_f3->set('fname', $fname);
-        $this->_f3->set('lname', $lname);
-        $this->_f3->set('userCoat', $coat);
-        $this->_f3->set('coats', DataLayer::getCoat());
-        $this->_f3->set('age', $age);
-        $this->_f3->set('number', $number);
+
+        $this->_f3->set('size', DataLayer::getSizes());
+        $this->_f3->set('frame', DataLayer::getFrames());
+        $this->_f3->set('finish', $finish);
+        $this->_f3->set('price', $price);
 
         $view = new Template();
-        echo $view->render('views/products.html');
+        echo $view->render('views/addToCart.html');
     }
 
     function cart()
