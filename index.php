@@ -8,6 +8,9 @@ ob_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+//instantiate new item object
+$member = new Item();
+
 //Start the session
 session_start();
 var_dump($_SESSION);
