@@ -40,6 +40,13 @@ $f3->route('GET|POST /products', function($f3) {
 
 });
 
+//Define an product builder route
+$f3->route('GET|POST /addToCart', function($f3) {
+
+    $GLOBALS['con']->addToCart();
+
+});
+
 //Define a cart route
 $f3->route('GET|POST /shopCart', function($f3) {
 
