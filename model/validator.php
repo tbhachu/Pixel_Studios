@@ -5,14 +5,28 @@ class Validator
 {
 
 
-    static function validCondiments($userConds)
+    static function validSizes($userSize)
     {
         //Store the valid condiments
-        $condiments = getCondiments();
+        $sizes = getSizes();
 
         //Check each selected condiment
-        foreach ($userConds as $selection) {
-            if (!in_array($selection, $condiments)) {
+        foreach ($userSize as $selection) {
+            if (!in_array($selection, $sizes)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static function validFrames($userFrame)
+    {
+        //Store the valid condiments
+        $frames = getFrames();
+
+        //Check each selected condiment
+        foreach ($userFrame as $selection) {
+            if (!in_array($selection, $frames)) {
                 return false;
             }
         }
