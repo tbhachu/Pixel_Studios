@@ -1,19 +1,9 @@
 <?php
 
-// 328/my-diner/model/validator.php
+// 328/Pixel_Studios/model/validator
 class Validator
 {
 
-
-    static function validFood($food)
-    {
-        return strlen($food) >= 3;
-    }
-
-    static function validMeal($meal)
-    {
-        return in_array($meal, getMeals());
-    }
 
     static function validCondiments($userConds)
     {
@@ -23,6 +13,24 @@ class Validator
         //Check each selected condiment
         foreach ($userConds as $selection) {
             if (!in_array($selection, $condiments)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @param $userConds
+     * @return bool
+     */
+    static function validOutdoor($userConds)
+    {
+        //Store the valid interests
+        $outdoor = DataLayer::getOutdoor();
+
+        //Check each selected interest
+        foreach ($userConds as $selection) {
+            if (!in_array($selection, $outdoor)) {
                 return false;
             }
         }
