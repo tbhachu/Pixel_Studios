@@ -8,20 +8,21 @@ ob_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-//instantiate new item object
-$member = new Item();
+//Require the autoload file
+require_once('vendor/autoload.php');
+
 
 //Start the session
 session_start();
 var_dump($_SESSION);
 
-//Require the autoload file
-require_once('vendor/autoload.php');
-
 //Create an instance of the Base class
 $f3 = Base::instance();
 $con = new Controller($f3);
 $dataLayer = new DataLayer();
+
+//instantiate new item object
+$member = new Item();
 
 //Define a default route
 $f3->route('GET /', function() {
@@ -36,14 +37,14 @@ $f3->route('GET /aboutUs', function() {
     $GLOBALS['con']->about();
 });
 
-//Define an product route
+//Define a product route
 $f3->route('GET|POST /products', function($f3) {
 
     $GLOBALS['con']->products();
 
 });
 
-//Define an product builder route
+//Define a product builder route
 $f3->route('GET|POST /addToCart', function($f3) {
 
     $GLOBALS['con']->addToCart();
