@@ -5,6 +5,24 @@
 <div class="container">
     <h1>Product Designer</h1>
 
+    <div class="col-sm-4">
+        <div class="mb-3">
+            <div class="card-body p-2">
+                <img class="card-img-top" id="link" src="{{ @SESSION.item->getLink }}" alt="{{ @SESSION.item->getTitle }}">
+                <h3 class="productTitle mt-2" id="title" >"{{ @SESSION.item->getTitle }}"</h3>
+
+                <p class="text-right">
+                    <button class="btn btn-success" id="{{ @product['Title'] }}" type="submit">
+                        Customize </button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
     <a href="views/products.html"> Products </a>
 </div>
