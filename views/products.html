@@ -5,33 +5,40 @@
     <div class="container">
 
         <h1>Products</h1>
-        <form action="#" method="post" class="row">
-        <!--<div class="row">-->
+        <!--<form action="#" method="post" class="row">-->
+
+        <div class="row">
 
             <!-- use fat free to populate this page, generate from an array -->
 
             <repeat group="{{ @products }}" value="{{ @product }}">
 
+                <form action="#" method="post" >
 
-                <div class="col-sm-4">
-                    <div class="mb-3">
-                        <div class="card-body p-2">
-                            <img class="card-img-top" id="link" src="{{ @product['Link'] }}" alt="{{ @product['Title'] }}">
-                            <h3 class="productTitle mt-2" id="title" >"{{ @product['Title'] }}"</h3>
-                            <p class="productDescription pl-1">{{ @product['Info'] }}</p>
-                            <p class="text-right">
-                                <button class="btn btn-success" id="{{ @product['Title'] }}" type="submit">
-                                    Customize </button>
-                            </p>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <div class="card-body p-2">
+                                <img class="card-img-top" src="{{ @product['Link'] }}" alt="{{ @product['Title'] }}">
+                                <input type="hidden" name="link" value="{{ @product['Link'] }}">
+                                <h3 class="productTitle mt-2" >"{{ @product['Title'] }}"</h3>
+                                <input type="hidden" name="title" value="{{ @product['Title'] }}">
+                                <p class="productDescription pl-1">{{ @product['Info'] }}</p>
+                                <input type="hidden" name="info" value="{{ @product['Info'] }}">
+                                <p class="text-right">
+                                    <button class="btn btn-success" id="{{ @product['Title'] }}" type="submit">
+                                        Customize </button>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                </form>
 
             </repeat>
 
 
-        <!--</div>-->
-        </form>
+        </div>
+        <!--</form>-->
 
     </div>
 
