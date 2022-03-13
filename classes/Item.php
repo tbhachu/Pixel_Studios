@@ -6,6 +6,7 @@ class Item
 
     private $_title;
     private $_link;
+    private $_info;
     private $_size;
     private $_frame;
     private $_finish;
@@ -15,10 +16,11 @@ class Item
     /**
      * default constructor with default values ( ="" )
      */
-    public function __construct($title="", $link="", $size="", $frame="", $finish="", $price=0)
+    public function __construct($title="", $link="", $info="", $size="", $frame="", $finish="", $price=0)
     {
         $this->_title = $title;
         $this->_link = $link;
+        $this->_info = $info;
         $this->_size = $size;
         $this->_frame = $frame;
         $this->_finish = $finish;
@@ -56,6 +58,22 @@ class Item
     public function setLink($link)
     {
         $this->_link = $link;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->_info;
+    }
+
+    /**
+     * @param string $info
+     */
+    public function setInfo($info)
+    {
+        $this->_info = $info;
     }
 
     /**
