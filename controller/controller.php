@@ -17,11 +17,13 @@ class Controller
         $products = $GLOBALS['dataLayer']->getProducts();
         $this->_f3->set('products', $products);
 
-        //if there is no sessionID created for customer then generate new one
-        if($_SESSION['customer']->getSessionID() == 0){
-        //generate a random session ID for this session
-        $seshID = rand();
-        $_SESSION['customer']->setSessionID($seshID);
+        //if there is no customer object created, create one
+        if(!isset($_SESSION['customer'])) {
+
+            //instantiate new customer object
+            $_SESSION['customer'] = new Customer();
+            //generate a random session ID for this session
+            $_SESSION['customer']->setSessionID(rand());
         }
 
         $view = new Template();
@@ -126,6 +128,7 @@ class Controller
 
             //TODO add price function to adjust price for different selections
 
+            $price = Validator::getPrice($size, $frame, $finish);
             $_SESSION['item']->setPrice($price);
 
 
