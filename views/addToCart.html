@@ -13,16 +13,65 @@
                     <h3 class="productTitle mt-2" id="title" >"{{ @SESSION.item->getTitle() }}"</h3>
                     <h5 class="productInfo mt-2" id="info" >"{{ @SESSION.item->getInfo() }}"</h5>
 
+
+                    <!--get size-->
+                    <div class="col-sm-8">
+                        <repeat group="{{ @sizes }}" value="{{ @size }}">
+                            <label><input class="ml-3" type="radio" name="size" value="{{ @size }}"
+                                <check if="{{ @size == @userSize }}">checked</check>>
+                                {{ @size }}
+                            </label>
+                        </repeat>
+
+                    </div>
+
+                    <!-- Display an error if there is one
+                    <check if="{{ isset(@errors['size']) }}">
+                        <span class="err font-weight-bold">{{ @errors['size'] }}</span>
+                    </check> -->
+
+                    <!--get frame-->
+                    <div class="col-sm-8">
+                        <repeat group="{{ @frames }}" value="{{ @frame }}">
+                            <label><input class="ml-3" type="radio" name="frame" value="{{ @frame }}"
+                                <check if="{{ @frame == @userFrame }}">checked</check>>
+                                {{ @frame }}
+                            </label>
+                        </repeat>
+
+                    </div>
+                    <!-- Display an error if there is one
+                    <check if="{{ isset(@errors['frame']) }}">
+                        <span class="err font-weight-bold">{{ @errors['frame'] }}</span>
+                    </check> -->
+
+                    <!--get finish-->
+                    <div class="col-sm-8">
+                        <repeat group="{{ @finishes }}" value="{{ @finish }}">
+                            <label><input class="ml-3" type="radio" name="finish" value="{{ @finish }}"
+                                <check if="{{ @finish == @userFinish }}">checked</check>>
+                                {{ @finish }}
+                            </label>
+                        </repeat>
+
+                    </div>
+                    <!-- Display an error if there is one
+                    <check if="{{ isset(@errors['finish']) }}">
+                        <span class="err font-weight-bold">{{ @errors['finish'] }}</span>
+                    </check> -->
+
+
                     <p class="text-right">
-                        <button class="btn btn-success" id="{{ @SESSION.item->getTitle() }}" type="submit">
+                        <button class="btn btn-success mr-3" id="{{ @SESSION.item->getTitle() }}" type="submit">
                             Add To Cart </button>
+
                     </p>
                 </div>
             </div>
 
-
-        <a href="products"> Go Back </a>
     </form>
+
+    <a href="products"> Go Back </a>
 </div>
 
 
