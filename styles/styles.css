@@ -161,9 +161,21 @@ footer{
     object-fit: cover;
 }
 
-.productTitle, .productDescription{
-    color: darkgray
+.cartImg{
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
 }
+
+.productTitle, .productDescription{
+    color: #eaeaea
+}
+
+.productInfo{
+    color: darkgray;
+}
+
+
 
 .price{
     color: yellowgreen;
