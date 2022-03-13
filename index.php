@@ -26,9 +26,6 @@ $member = new Item();
 
 //instantiate new customer object
 $_SESSION['customer'] = new Customer();
-//generate a random session ID for this session
-$seshID = rand();
-$_SESSION['customer']->setSessionID($seshID);
 
 
 //Define a default route
