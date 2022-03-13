@@ -24,6 +24,10 @@ $dataLayer = new DataLayer();
 //instantiate new item object
 $member = new Item();
 
+//instantiate new customer object
+$customer = new Customer();
+//generate unique customer id
+
 //Define a default route
 $f3->route('GET /', function() {
 
