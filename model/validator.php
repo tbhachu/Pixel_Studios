@@ -7,48 +7,41 @@ class Validator
 
     static function validSizes($userSize)
     {
-        //Store the valid condiments
-        $sizes = getSizes();
+        //Store the valid sizes
+        $sizes = DataLayer::getSizes();
 
-        //Check each selected condiment
-        foreach ($userSize as $selection) {
-            if (!in_array($selection, $sizes)) {
+        //Check selected
+        if (!in_array($userSize, $sizes)) {
                 return false;
-            }
         }
+
         return true;
     }
 
     static function validFrames($userFrame)
     {
-        //Store the valid condiments
-        $frames = getFrames();
+        //Store the valid frames
+        $frames = DataLayer::getFrames();
 
-        //Check each selected condiment
-        foreach ($userFrame as $selection) {
-            if (!in_array($selection, $frames)) {
-                return false;
-            }
+        //Check selected
+        if (!in_array($userFrame, $frames)) {
+            return false;
         }
         return true;
     }
 
-    /**
-     * @param $userConds
-     * @return bool
-     */
-    static function validOutdoor($userConds)
+    static function validFinishes($userFinish)
     {
-        //Store the valid interests
-        $outdoor = DataLayer::getOutdoor();
+        //Store the valid finishes
+        $frames = DataLayer::getFinishes();
 
-        //Check each selected interest
-        foreach ($userConds as $selection) {
-            if (!in_array($selection, $outdoor)) {
-                return false;
-            }
+        //Check selected
+        if (!in_array($userFinish, $frames)) {
+            return false;
         }
         return true;
     }
+
+
 
 }

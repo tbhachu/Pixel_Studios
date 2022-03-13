@@ -89,6 +89,15 @@ class DataLayer
     }
 
     /**
+     * Return an array of finish types
+     * @return string[]
+     */
+    static function getFinishes()
+    {
+        return array('matte', 'gloss', 'canvas');
+    }
+
+    /**
      * Return an array of image address's
      * @return string[]
      */
