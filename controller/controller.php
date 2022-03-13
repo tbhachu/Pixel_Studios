@@ -83,7 +83,6 @@ class Controller
             //$price = $_POST['price'];
 
             //Validate the data
-
             if(Validator::validSizes($size)) {
 
                 //Add the data to the session variable
@@ -107,8 +106,21 @@ class Controller
                 $this->_f3->set('errors["frame"]', 'Please enter a valid frame type');
             }
 
+            //Validate the data
+            if(Validator::validFinishes($finish)) {
 
-            //Redirect user to product page if there are no errors
+                //Add the data to the session variable
+                $_SESSION['item']->setFinish($finish);
+            }
+            else {
+
+                //Set an error
+                $this->_f3->set('errors["finish"]', 'Please enter a valid finish type');
+            }
+
+
+            //add new item to database, then
+            //Redirect user back to product page if there are no errors
             if (empty($this->_f3->get('errors'))) {
                 $this->_f3->reroute('products');
             }
@@ -116,9 +128,9 @@ class Controller
         }
 
 
-        $this->_f3->set('size', DataLayer::getSizes());
-        $this->_f3->set('frame', DataLayer::getFrames());
-        $this->_f3->set('finish', $finish);
+        $this->_f3->set('sizes', DataLayer::getSizes());
+        $this->_f3->set('frames', DataLayer::getFrames());
+        $this->_f3->set('finishes', DataLayer::getFinishes());
         $this->_f3->set('price', $price);
 
         $view = new Template();
