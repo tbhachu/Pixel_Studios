@@ -17,6 +17,13 @@ class Controller
         $products = $GLOBALS['dataLayer']->getProducts();
         $this->_f3->set('products', $products);
 
+        //if there is no sessionID created for customer then generate new one
+        if($_SESSION['customer']->getSessionID() == 0){
+        //generate a random session ID for this session
+        $seshID = rand();
+        $_SESSION['customer']->setSessionID($seshID);
+        }
+
         $view = new Template();
         echo $view->render('views/home.html');
     }
@@ -75,12 +82,11 @@ class Controller
             /*$title = $_POST['title'];
             $link = $_POST['link'];*/
 
-
             $size = $_POST['size'];
             $frame = $_POST['frame'];
             $finish = $_POST['finish'];
 
-            //$price = $_POST['price'];
+            $price = $price;
 
             //Validate the data
             if(Validator::validSizes($size)) {
@@ -113,15 +119,23 @@ class Controller
                 $_SESSION['item']->setFinish($finish);
             }
             else {
-
                 //Set an error
                 $this->_f3->set('errors["finish"]', 'Please enter a valid finish type');
             }
 
 
+            //TODO add price function to adjust price for different selections
+
+            $_SESSION['item']->setPrice($price);
+
+
             //add new item to database, then
             //Redirect user back to product page if there are no errors
             if (empty($this->_f3->get('errors'))) {
+
+
+                $GLOBALS['dataLayer']->insertItem($_SESSION['item'],$_SESSION['customer']);
+
                 $this->_f3->reroute('products');
             }
 
