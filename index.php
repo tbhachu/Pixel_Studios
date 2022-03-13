@@ -25,8 +25,11 @@ $dataLayer = new DataLayer();
 $member = new Item();
 
 //instantiate new customer object
-$customer = new Customer();
-//generate unique customer id
+$_SESSION['customer'] = new Customer();
+//generate a session ID for this session
+$seshID = 1;
+$_SESSION['customer']->setSessionID($seshID);
+
 
 //Define a default route
 $f3->route('GET /', function() {
