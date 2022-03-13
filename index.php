@@ -25,7 +25,7 @@ $dataLayer = new DataLayer();
 $member = new Item();
 
 //instantiate new customer object
-$_SESSION['customer'] = new Customer();
+//$_SESSION['customer'] = new Customer();
 
 
 //Define a default route
