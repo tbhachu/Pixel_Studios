@@ -44,22 +44,25 @@ class DataLayer
 
     /**
      * saveOrder accepts an Order object and inserts it into the DB
-     * @param $order An Order object
+     * @param $item An Order object
      * @return string The order_id of the inserted row
      */
-    function saveOrder($order)
+    function insertItem($item, $customer)
     {
         //1. Define the query
-        $sql = "INSERT INTO diner_order (item, meal, condiments)
-                VALUES (:food, :meal, :condiments)";
+        $sql = "INSERT INTO ShoppingCart (sessionID, title, size, frame, finish, price)
+                VALUES (:sessionID, :title, :size, :frame, :finish, :price)";
 
         //2. Prepare the statement
         $statement = $this->_dbh->prepare($sql);
 
         //3. Bind the parameters
-        $statement->bindParam(':food', $order->getFood());
-        $statement->bindParam(':meal', $order->getMeal());
-        $statement->bindParam(':condiments', $order->getCondiments());
+        $statement->bindParam(':sessionID', $customer->getSessionID());
+        $statement->bindParam(':title', $item->getTitle());
+        $statement->bindParam(':size', $item->getSize());
+        $statement->bindParam(':frame', $item->getFrame());
+        $statement->bindParam(':finish', $item->getFinish());
+        $statement->bindParam(':price', $item->getPrice());
 
         //4. Execute the query
         $statement->execute();
