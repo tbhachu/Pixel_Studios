@@ -11,11 +11,11 @@
                 <div class="card-body p-2">
                     <img class=" cartImg" src="{{ @SESSION.item->getLink() }}" alt="{{ @SESSION.item->getTitle() }}">
                     <h3 class="productTitle mt-2" id="title" >"{{ @SESSION.item->getTitle() }}"</h3>
-                    <h5 class="productInfo mt-2" id="info" >"{{ @SESSION.item->getInfo() }}"</h5>
+                    <h5 class="productInfo mt-2 ml-2" id="info" >{{ @SESSION.item->getInfo() }}</h5>
 
 
                     <!--get size-->
-                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Size</label>
+                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Size <br>30/40/50/55</br></label>
                     <div class="col-sm-8">
                         <repeat group="{{ @sizes }}" value="{{ @size }}">
                             <label class="text-light"><input class="ml-3" type="radio" name="size" value="{{ @size }}"
@@ -32,7 +32,7 @@
                     </check> -->
 
                     <!--get frame-->
-                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Frame Style</label>
+                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Frame Style <br>(silver/gold +10)</br></label>
                     <div class="col-sm-8">
                         <repeat group="{{ @frames }}" value="{{ @frame }}">
                             <label class="text-light"><input class="ml-3" type="radio" name="frame" value="{{ @frame }}"
@@ -48,7 +48,7 @@
                     </check> -->
 
                     <!--get finish-->
-                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Image Finish</label>
+                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Image Finish <br>(canvas +10)</br></label>
                     <div class="col-sm-8">
                         <repeat group="{{ @finishes }}" value="{{ @finish }}">
                             <label class="text-light"><input class="ml-3" type="radio" name="finish" value="{{ @finish }}"
