@@ -15,9 +15,10 @@
 
 
                     <!--get size-->
+                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Size</label>
                     <div class="col-sm-8">
                         <repeat group="{{ @sizes }}" value="{{ @size }}">
-                            <label><input class="ml-3" type="radio" name="size" value="{{ @size }}"
+                            <label class="text-light"><input class="ml-3" type="radio" name="size" value="{{ @size }}"
                                 <check if="{{ @size == @userSize }}">checked</check>>
                                 {{ @size }}
                             </label>
@@ -31,9 +32,10 @@
                     </check> -->
 
                     <!--get frame-->
+                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Frame Style</label>
                     <div class="col-sm-8">
                         <repeat group="{{ @frames }}" value="{{ @frame }}">
-                            <label><input class="ml-3" type="radio" name="frame" value="{{ @frame }}"
+                            <label class="text-light"><input class="ml-3" type="radio" name="frame" value="{{ @frame }}"
                                 <check if="{{ @frame == @userFrame }}">checked</check>>
                                 {{ @frame }}
                             </label>
@@ -46,9 +48,10 @@
                     </check> -->
 
                     <!--get finish-->
+                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Image Finish</label>
                     <div class="col-sm-8">
                         <repeat group="{{ @finishes }}" value="{{ @finish }}">
-                            <label><input class="ml-3" type="radio" name="finish" value="{{ @finish }}"
+                            <label class="text-light"><input class="ml-3" type="radio" name="finish" value="{{ @finish }}"
                                 <check if="{{ @finish == @userFinish }}">checked</check>>
                                 {{ @finish }}
                             </label>
