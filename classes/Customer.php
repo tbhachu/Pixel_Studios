@@ -4,6 +4,7 @@
 class Customer
 {
     //classes and functions go on different lines, decisions and loops, {} same line
+    private $_sessionID;
     private $_fname;
     private $_lname;
     private $_phone;
@@ -16,14 +17,33 @@ class Customer
     /**
      * default constructor with default values ( ="" )
      */
-    public function __construct($fname="", $lname="", $phone="", $email="", $address="", $state="")
+    public function __construct($sessionID=0, $fname="", $lname="", $phone="", $email="", $address="", $state="")
     {
+        $this->_sessionID = $sessionID;
         $this->_fname = $fname;
         $this->_lname = $lname;
         $this->_phone = $phone;
         $this->_email = $email;
         $this->_address = $address;
         $this->_state = $state;
+    }
+
+    /**
+     * return session id
+     * @return integer
+     */
+    public function getSessionID()
+    {
+        return $this->_sessionID;
+    }
+
+    /**
+     * set session ID
+     * @param integer $sessionID
+     */
+    public function setSessionID(int $sessionID)
+    {
+        $this->_sessionID = $sessionID;
     }
 
 
