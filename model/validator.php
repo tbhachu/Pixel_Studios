@@ -42,6 +42,40 @@ class Validator
         return true;
     }
 
+    /**
+     * Return an price based on options
+     * @return double
+     */
+    static function getPrice($size, $frame, $finish)
+    {
+
+        //size
+        if($size == "small") {
+            $price = 29.99;
+        }
+        else if ($size == "medium") {
+            $price = 39.99;
+        }
+        else if ($size == "large") {
+            $price = 49.99;
+        }
+        else{
+            $price = 54.99;
+        }
+
+        //frame
+        if($frame == "gold" || $frame == "silver") {
+            $price += 10.00;
+        }
+
+        //finish
+        if($finish == "canvas") {
+            $price += 10.00;
+        }
+
+        return $price;
+    }
+
 
 
 }
