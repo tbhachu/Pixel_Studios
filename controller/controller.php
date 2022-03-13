@@ -29,18 +29,21 @@ class Controller
 
         $title = "";
         $link = "";
+        $info = "";
 
         //if the form has been posted
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             $title = $_POST['title'];
             $link = $_POST['link'];
+            $info = $_POST['info'];
 
             //instantiate item object
             $_SESSION['item'] = new Item();
 
             $_SESSION['item']->setTitle($title);
             $_SESSION['item']->setLink($link);
+            $_SESSION['item']->setInfo($info);
 
             $this->_f3->reroute('addToCart');
 
@@ -72,6 +75,7 @@ class Controller
             /*$title = $_POST['title'];
             $link = $_POST['link'];*/
 
+
             $size = $_POST['size'];
             $frame = $_POST['frame'];
             $finish = $_POST['finish'];
@@ -79,6 +83,7 @@ class Controller
             //$price = $_POST['price'];
 
             //Validate the data
+
             if(Validator::validSizes($size)) {
 
                 //Add the data to the session variable
