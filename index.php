@@ -26,8 +26,8 @@ $member = new Item();
 
 //instantiate new customer object
 $_SESSION['customer'] = new Customer();
-//generate a session ID for this session
-$seshID = 1;
+//generate a random session ID for this session
+$seshID = rand();
 $_SESSION['customer']->setSessionID($seshID);
 
 
