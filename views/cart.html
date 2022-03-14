@@ -5,22 +5,36 @@
 
     <div class="container">
         <form id="form" action="#" method="post" class="form-horizontal">
-            <div class="div1">
-                <legend class="align-center">Shopping Cart</legend>
+            <div class="container" id="div1">
                 <hr>
 
                 <div class="row">
                     <div class="col-sm-6">
 
                         <!------------------------ List of Products Added to Cart ------------------------->
-
+                        <div class="col-sm-6">
+                            <ul class="no-bullets">
+                                <li><b>Title:</b> {{ @SESSION.item->getTitle() }} </li>
+                                <li><b>Info:</b> {{ @SESSION.item->getInfo() }}</li>
+                                <li><b>Size:</b> {{ @SESSION.item->getSize() }}</li>
+                                <li><b>Frame:</b> {{ @SESSION.item->getFrame() }}</li>
+                                <li><b>Finish:</b> {{ @SESSION.item->getFinish() }}</li>
+                                <li><b>Price:</b> {{ @SESSION.item->getPrice() }}</li>
+                            </ul>
+                        </div>
 
                     </div>
-                    <div>
-                        <button type="submit" class="btn btn-primary d-block mr-3 ml-auto">Checkout</button>
+                    <div class="col-sm-6">
+                        <img class="image" id="shoppingImage" src="{{ @SESSION.item->getLink() }}" alt="{{ @SESSION.item->getTitle() }}">
                     </div>
+
 
                 </div>
+                <hr><br>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary d-block mr-3 ml-auto" href="checkout">Checkout</button>
             </div>
         </form>
     </div>
