@@ -152,7 +152,7 @@ class Customer
      * set bio
      * @param string $address
      */
-    public function setBio($address)
+    public function setAddress($address)
     {
         $this->_address = $address;
     }
