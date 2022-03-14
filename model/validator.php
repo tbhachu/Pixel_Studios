@@ -76,6 +76,56 @@ class Validator
         return $price;
     }
 
+    /**
+     * Validates the first name of user
+     * @param $fname
+     * @return bool|mixed
+     */
+    static function validFName($fname)
+    {
+        if(strlen($fname) >= 3 && ctype_alnum($fname)) {
+            return $fname;
+        }
+        return true;
+    }
+
+    /**
+     * Validates the last name of user
+     * @param $lname
+     * @return bool|mixed
+     */
+    static function validLName($lname)
+    {
+        if(strlen($lname) >= 3 && ctype_alnum($lname)) {
+            return $lname;
+        }
+        return true;
+    }
+
+    /**
+     * Validates user's phone number. Returns false otherwise
+     * @param $phone
+     * @return false|int
+     */
+    static function validPhone($phone)
+    {
+        $phone = str_replace([' ', '.', '-', '(', ')'], '', $phone);
+        return preg_match('/^[+]?[(]?[0-9]{3}[)]?[-\s]?[0-9]{3}[-\s]?[0-9]{4,6}$/', $phone);
+
+    }
+
+    static function validEmail($email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        } else {
+            return $email;
+        }
+
+    }
+
+
+
 
 
 }
