@@ -1,0 +1,31 @@
+<include href="views/header.html"></include>
+
+<div class="container">
+    <h1>Summary</h1>
+
+    <div class="container">
+        <form id="form" action="#" method="post" class="form-horizontal">
+            <div class="div1">
+                <hr>
+                <h4>Thanks for your Order!</h4>
+                <div class="container">
+                    <p>Thanks, {{ @SESSION.customer->getFirstName() }} {{ @SESSION.customer->getLastName() }}!
+                    Your order has been placed, and will ship to the address of:</p>
+                    <p>{{ @SESSION.customer->getAddress() }}</p>
+                    <p>A confirmation email has been sent to <b>{{ @SESSION.customer->getEmail() }}.</b></p>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary d-block mr-3 ml-auto">Checkout</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+</div>
+
+
+<include href="views/footer.html"></include>
