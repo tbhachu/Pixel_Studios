@@ -159,8 +159,9 @@ class Controller
 
         //If the form has been posted
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
             //Redirect user to Checkout Page
-            $this->_f3->reroute('views/checkout.html');
+            $this->_f3->reroute('checkout');
         }
 
 
@@ -180,6 +181,76 @@ class Controller
 
     function checkout()
     {
+        $fname= "";
+        $lname= "";
+        $email= "";
+        $phone= "";
+        $address= "";
+
+        //If the form has been posted
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $email = $_POST['email'];
+            $state = $_POST['state'];
+            $phone = $_POST['phone'];
+            $address = $_POST['address'];
+            $_SESSION['customer']->setState($state);
+            $_SESSION['customer']->setAddress($address);
+
+
+            // -------------- Validate first name --------------//
+            if(Validator::validFName($fname)) {
+                //Add the data to the session variable
+                $_SESSION['customer']->setFirstName($fname);
+            }
+            else {
+                //Set an error
+                $this->_f3->set('errors["fname"]', 'Please enter a valid first name');
+            }
+
+            // ------------------ Validate last name -----------//
+            if(Validator::validLName($lname)) {
+                //Add the data to the session variable
+                $_SESSION['customer']->setLastName($lname);
+            }
+            else {
+                //Set an error
+                $this->_f3->set('errors["lname"]', 'Please enter a valid last name');
+            }
+
+            // -------------- Validate phone number --------------//
+            if(Validator::validPhone($phone)) {
+                //Add the data to the session variable
+                $_SESSION['customer']->setPhone($phone);
+            } else {
+                //Set an error
+                $this->_f3->set('errors["phone"]', 'Please enter a valid phone number');
+            }
+
+            // -------------- Validate email --------------//
+            if(Validator::validEmail($email)) {
+                //Add the data to the session variable
+                $_SESSION['customer']->setEmail($email);
+            }
+            else {
+                //Set an error
+                $this->_f3->set('errors["email"]', 'Please enter a valid email');
+            }
+
+
+            //Redirect user to next page if there are no errors
+            if (empty($this->_f3->get('errors'))) {
+                $this->_f3->reroute('summary');
+            }
+        }
+
+        $this->_f3->set('fname', $fname);
+        $this->_f3->set('lname', $lname);
+        $this->_f3->set('phone', $phone);
+        $this->_f3->set('email', $email);
+        $this->_f3->set('address', $address);
 
         $view = new Template();
         echo $view->render('views/checkout.html');
@@ -190,7 +261,7 @@ class Controller
     {
 
         //TODO: Send data to the model
-        $GLOBALS['dataLayer']->saveOrder($_SESSION['order']);
+        //$GLOBALS['dataLayer']->saveOrder($_SESSION['order']);
 
         $view = new Template();
         echo $view->render('views/summary.html');
