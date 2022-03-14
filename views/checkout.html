@@ -1,49 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Checkout</title>
-</head>
-<body>
+<include href="views/header.html"></include>
 
 <div class="container">
-    <h1>Profile Summary</h1>
+    <h1>Checkout</h1>
     <hr>
+
+
+    <form id="form" action="#" method="post" class="form-horizontal">
     <div class="row">
-        <div class="col-sm-6">
-            <h3>Information</h3>
+        <div class="col-sm-6" id="div2">
             <fieldset>
-                <legend class="align-center">Contact Info</legend>
-                <p>
-                    <input type="text" id="fname" name="fname" placeholder="First Name" class="form-control col-sm-5">
-                    <input type="text" id="lname" name="lname" placeholder="Last Name" class="form-control col-sm-5">
-                    <input type="text" id="address" name="address" placeholder="Shipping Address" class="form-control col-sm-5"><br>
-                    <input type="text" id="email" name="email" placeholder="Email Address" class="form-control col-sm-5">
-                </p>
+                <legend class="align-center">Information</legend>
+                <p id="form1">
+                        <!-------------------------------- First Name ------------------------------------->
+                    <p>
+                        <input type="text" id="fname" name="fname" placeholder="First Name"
+                                      class="form-control col-lg-7"
+                                      value="{{ @fname }}">
+                    </p>
+                    <!-- Display an error for first name if there is one -->
+                    <check if="{{ isset(@errors['fname']) }}">
+                        <span class="err">{{ @errors['fname'] }}</span><br>
+                    </check>
+
+
+                    <!----------------------------------- Last Name ------------------------------->
+                    <p>
+                       <input type="text" id="lname" name="lname" placeholder="Last Name"
+                                     class="form-control col-lg-7"
+                                     value="{{ @lname }}">
+                    </p>
+                    <!-- Display an error for last name if there is one -->
+                    <check if="{{ isset(@errors['lname']) }}">
+                        <span class="err">{{ @errors['lname'] }}</span><br>
+                    </check>
+
+
+                    <!------------------------------- Phone Number -------------------------------->
+                    <p>
+                        <input type="text" id="phone" name="phone" placeholder="Phone Number"
+                                       class="form-control col-lg-7"
+                                       value="{{ @number }}">
+                    </p>
+                    <!-- Display an error for phone number if there is one -->
+                    <check if="{{ isset(@errors['phone']) }}">
+                        <span class="err">{{ @errors['phone'] }}</span><br>
+                    </check>
+
+                    <!------------------------------------ Email---------------------------------------->
+                    <p>
+                    <input type="text" id="email" name="email" placeholder="Email Address"
+                           class="form-control col-lg-7">
+                    </p>
+                    <!-- Display an error for email if there is one -->
+                    <check if="{{ isset(@errors['email']) }}">
+                        <span class="err">{{ @errors['email'] }}</span><br>
+                    </check>
+
+
+                    <!------------------------------------ Address ----------------------------------->
+                    <p>
+                        <input type="text" id="address" name="address" placeholder="Address"
+                                      class="form-control col-lg-7">
+                    </p>
+                    <!-- Display an error for phone number if there is one -->
+                    <check if="{{ isset(@errors['address']) }}">
+                        <span class="err">{{ @errors['address'] }}</span><br>
+                    </check>
+
+
+
+                        <!-------------------------------- States ----------------------------------->
+
+                    <p> <b>State</b>
+                        <select name="state" id="states">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA" selected>Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </p>
+
+
+
+
             </fieldset>
+        </div>
+
+        <div class="col-sm-3" id="div1">
+            <legend>Order Summary</legend>
+            <div class="container">
+                <ul class="no-bullets">
+                    <li><b>Title:</b> {{ @SESSION.item->getTitle() }} </li>
+                    <li><b>Info:</b> {{ @SESSION.item->getInfo() }}</li>
+                    <li><b>Size:</b> {{ @SESSION.item->getSize() }}</li>
+                    <li><b>Frame:</b> {{ @SESSION.item->getFrame() }}</li>
+                    <li><b>Finish:</b> {{ @SESSION.item->getFinish() }}</li>
+                    <hr><br>
+                    <li><b>Total:</b> {{ @SESSION.item->getPrice() }}</li>
+                </ul>
+            </div>
 
         </div>
 
-        <div class="col-sm-6" id="divSummary">
-            <b>Summary</b>
-            <hr>
-
-            <p>{{ @SESSION.product->getTitle() }}</p>
-            <p>{{ @SESSION.product->getSize() }}</p>
-            <p>{{ @SESSION.product->getFrame() }}</p>
-            <p>{{ @SESSION.product->getFinish() }}</p>
-            <p>{{ @SESSION.product->getPrice() }}</p>
-            <p>{{ @SESSION.product->getTitle() }}</p>
-            <hr>
-            <p>SubTotal: {{ }}</p>
-            <p>Shipping: </p>
-            <p>Tax: </p>
-            <p>Total: </p>
-        </div>
     </div>
 
-    <a href="{{ @BASE }}">Home Page</a>
+        <div>
+            <button type="submit" class="btn btn-primary d-block mr-3 ml-auto">Confirm</button>
+        </div>
+    </form>
+    <!-- <a href="{{ @BASE }}">Home Page</a> -->
 </div>
 
-</body>
-</html>
+<include href="views/footer.html"></include>
