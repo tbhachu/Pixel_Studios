@@ -1,5 +1,6 @@
 body{
     background-color: black;
+    color: whitesmoke;
 }
 
 #main{
@@ -111,7 +112,7 @@ img{
 }
 
 .text-center, h1 {
-    color: darkgray;
+    color: whitesmoke;
 }
 
 .d-inline-block {
@@ -190,10 +191,41 @@ footer{
     color: white;
 }
 
-#divSummary {
-    background-color: white;
+#div1 {
+    background-color: #393a3f;
     padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 3px grey;
+    height: 50%;
+}
+
+li {
+    list-style-type: none;
+}
+
+#shoppingImage {
+    width: 100%;
+}
+
+.no-bullets > li > b {
+    color: #0d6efd;
+}
+
+#form1 > input {
+    padding: 10px;
+}
+
+#div2 {
+    background-color: #393a3f;
+    margin-right: 30px;
     margin-bottom: 20px;
     box-shadow: 3px 3px 3px grey;
 }
 
+input[type="text"] {
+    margin: 10px 10px 0 10px;
+}
+
+fieldset {
+    padding: 20px;
+}
