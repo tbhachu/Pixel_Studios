@@ -135,7 +135,9 @@
 
         <div class="col-sm-3" id="div1">
             <legend>Order Summary</legend>
-            <div class="container">
+            <repeat group="{{ @items }}" value="{{ @item }}">
+
+            <!--<div class="container">
                 <ul class="no-bullets">
                     <li><b>Title:</b> {{ @SESSION.item->getTitle() }} </li>
                     <li><b>Info:</b> {{ @SESSION.item->getInfo() }}</li>
@@ -145,7 +147,18 @@
                     <hr><br>
                     <li><b>Total:</b> {{ @SESSION.item->getPrice() }}</li>
                 </ul>
-            </div>
+            </div>-->
+                <ul class="no-bullets">
+                    <li><b>Title:</b> {{ @item['title'] }} </li>
+                    <li><b>Size:</b> {{ @item['size'] }}</li>
+                    <li><b>Frame:</b> {{ @item['frame'] }}</li>
+                    <li><b>Finish:</b> {{ @item['finish'] }}</li>
+                </ul>
+
+            </repeat>
+
+            <p><b>Total:</b> ${{ @item['price'] }}</p>
+
 
         </div>
 
