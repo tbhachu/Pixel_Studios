@@ -50,8 +50,8 @@ class DataLayer
     function insertItem($item, $customer)
     {
         //1. Define the query
-        $sql = "INSERT INTO ShoppingCart (sessionID, title, size, frame, finish, price)
-                VALUES (:sessionID, :title, :size, :frame, :finish, :price)";
+        $sql = "INSERT INTO ShoppingCart (sessionID, title, size, frame, finish, price, link)
+                VALUES (:sessionID, :title, :size, :frame, :finish, :price, :link)";
 
         //2. Prepare the statement
         $statement = $this->_dbh->prepare($sql);
@@ -63,6 +63,7 @@ class DataLayer
         $statement->bindParam(':frame', $item->getFrame());
         $statement->bindParam(':finish', $item->getFinish());
         $statement->bindParam(':price', $item->getPrice());
+        $statement->bindParam(':link', $item->getLink());
 
         //4. Execute the query
         $statement->execute();
@@ -97,6 +98,17 @@ class DataLayer
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return $result;
+    }
+
+    /**
+     * Return an array of img links
+     * @return string[]
+     */
+    static function getImgLinks()
+    {
+        return array("Car"=>"images/LONG_EXP_CAR.jpg", "Graffiti"=>"images/dundee graffiti.jpeg", "motorcycle"=>"images/parismotorbike.jpeg",
+            "Dundee"=>"images/dundee.jpeg", "Ellie"=>"images/ellie.jpeg","Jellyfish"=>"images/jellyfish.jpeg","Morning"=>"images/morning.jpeg",
+            "Skyler"=>"images/skyler.jpeg","St Andrews"=>"images/standrews.jpeg","Windows"=>"images/windows.jpeg");
     }
 
     /**

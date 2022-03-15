@@ -11,7 +11,6 @@ error_reporting(E_ALL);
 //Require the autoload file
 require_once('vendor/autoload.php');
 
-
 //Start the session
 session_start();
 //var_dump($_SESSION);
@@ -30,6 +29,7 @@ $member = new Item();
 
 //Define a default route
 $f3->route('GET /', function() {
+
 
     $GLOBALS['con']->home();
 
