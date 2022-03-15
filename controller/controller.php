@@ -69,8 +69,6 @@ class Controller
         $this->_f3->set('products', $products);
 
         //Initialize input variables
-        //$title = "";
-        //$link = "";
         $size = "";
         $frame = "";
         $finish = "";
@@ -79,10 +77,6 @@ class Controller
         //if the form has been posted
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-
-            //title and link will already be generated
-            /*$title = $_POST['title'];
-            $link = $_POST['link'];*/
 
             $size = $_POST['size'];
             $frame = $_POST['frame'];
@@ -125,9 +119,6 @@ class Controller
                 $this->_f3->set('errors["finish"]', 'Please enter a valid finish type');
             }
 
-
-            //TODO add price function to adjust price for different selections
-
             $price = Validator::getPrice($size, $frame, $finish);
             $_SESSION['item']->setPrice($price);
 
@@ -135,7 +126,6 @@ class Controller
             //add new item to database, then
             //Redirect user back to product page if there are no errors
             if (empty($this->_f3->get('errors'))) {
-
 
                 $GLOBALS['dataLayer']->insertItem($_SESSION['item'],$_SESSION['customer']);
 
@@ -157,13 +147,16 @@ class Controller
     function cart()
     {
 
+        //get data from model
+        $items = $GLOBALS['dataLayer']->getCart($_SESSION['customer']);
+        $this->_f3->set('items', $items);
+
         //If the form has been posted
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             //Redirect user to Checkout Page
             $this->_f3->reroute('checkout');
         }
-
 
 
         $view = new Template();
@@ -181,6 +174,12 @@ class Controller
 
     function checkout()
     {
+
+        //get data from model
+        $items = $GLOBALS['dataLayer']->getCart($_SESSION['customer']);
+        $this->_f3->set('items', $items);
+
+
         $fname= "";
         $lname= "";
         $email= "";
