@@ -17,7 +17,7 @@ class DataLayer
         try {
             //Instantiate a PDO database object
             $this->_dbh = new PDO (DB_DSN, DB_USERNAME, DB_PASSWORD);
-            echo "Connection Succesful";
+            //echo "Connection Succesful";
         }
         catch (PDOException $e) {
             echo "Error connecting to DB " . $e->getMessage();
