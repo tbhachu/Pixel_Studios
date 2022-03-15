@@ -132,7 +132,7 @@ hr{
     background-color: darkgray !important;
 }
 
-.footer-copyright{
+.footer-copyright, .footer-text{
     color: darkgray !important;
 
 }
