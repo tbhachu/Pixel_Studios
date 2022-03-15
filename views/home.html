@@ -28,7 +28,7 @@
             <!-- repeat -->
             <repeat group="{{ @products }}" value="{{ @product }}">
 
-                <div class="carousel-item" id="{{ @product['ImgID'] }}">
+                <div class="carousel-item" data-interval="5000" data-pause="hover" id="{{ @product['ImgID'] }}">
                     <img class="d-block w-100 slideImage" src="{{ @product['Link'] }}" alt="{{ @product['Title'] }}">
                     <div class="carousel-caption d-none d-md-block text-left">
                         <h4> "{{ @product['Title'] }}" </h4>
