@@ -74,6 +74,32 @@ class DataLayer
     }
 
     /**
+     * getCart returns all items user selected from the products page
+     * @param $customer object
+     * @return string The order_id of the inserted row
+     */
+    function getCart($customer)
+    {
+
+        //1. Define the query
+        $sql = "SELECT * FROM ShoppingCart WHERE sessionID = :sessionID ;";
+
+        //2. Prepare the statement
+        $statement = $this->_dbh->prepare($sql);
+
+        //3. Bind the parameters
+        $statement->bindParam(':sessionID', $customer->getSessionID());
+
+        //4. Execute the query
+        $statement->execute();
+
+        //5. Process the results (get the primary key)
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    /**
      * Return an array of frame sizes
      * @return string[]
      */
