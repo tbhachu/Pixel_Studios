@@ -9,24 +9,27 @@
                 <hr>
 
                 <div class="row">
-                    <div class="col-sm-6">
 
-                        <!------------------------ List of Products Added to Cart ------------------------->
+                    <repeat group="{{ @items }}" value="{{ @item }}">
+
                         <div class="col-sm-6">
-                            <ul class="no-bullets">
-                                <li><b>Title:</b> {{ @SESSION.item->getTitle() }} </li>
-                                <li><b>Info:</b> {{ @SESSION.item->getInfo() }}</li>
-                                <li><b>Size:</b> {{ @SESSION.item->getSize() }}</li>
-                                <li><b>Frame:</b> {{ @SESSION.item->getFrame() }}</li>
-                                <li><b>Finish:</b> {{ @SESSION.item->getFinish() }}</li>
-                                <li><b>Price:</b> {{ @SESSION.item->getPrice() }}</li>
-                            </ul>
-                        </div>
+                            <!------------------------ List of Products Added to Cart ------------------------->
 
-                    </div>
-                    <div class="col-sm-6">
-                        <img class="image" id="shoppingImage" src="{{ @SESSION.item->getLink() }}" alt="{{ @SESSION.item->getTitle() }}">
-                    </div>
+                            <div class="col-sm-6">
+                                <ul class="no-bullets">
+                                    <li><b>Title:</b> {{ @item['title'] }} </li>
+                                    <li><b>Size:</b> {{ @item['size'] }}</li>
+                                    <li><b>Frame:</b> {{ @item['frame'] }}</li>
+                                    <li><b>Finish:</b> {{ @item['finish'] }}</li>
+                                    <li><b>Price:</b> {{ @item['price'] }}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <img class="image" id="shoppingImage" src="{{ @SESSION.item->getLink() }}" alt="{{ @SESSION.item->getTitle() }}">
+                        </div>
+                    </repeat>
 
 
                 </div>
