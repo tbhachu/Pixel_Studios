@@ -100,16 +100,7 @@ class DataLayer
         return $result;
     }
 
-    /**
-     * Return an array of img links
-     * @return string[]
-     */
-    static function getImgLinks()
-    {
-        return array("Car"=>"images/LONG_EXP_CAR.jpg", "Graffiti"=>"images/dundee graffiti.jpeg", "motorcycle"=>"images/parismotorbike.jpeg",
-            "Dundee"=>"images/dundee.jpeg", "Ellie"=>"images/ellie.jpeg","Jellyfish"=>"images/jellyfish.jpeg","Morning"=>"images/morning.jpeg",
-            "Skyler"=>"images/skyler.jpeg","St Andrews"=>"images/standrews.jpeg","Windows"=>"images/windows.jpeg");
-    }
+
 
     /**
      * Return an array of frame sizes

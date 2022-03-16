@@ -124,6 +124,17 @@ class Validator
 
     }
 
+    static function getTotal($prices)
+    {
+        $total = 0;
+
+        for($x = 0; $x <= sizeof($prices); $x++)
+        {
+            $total += $x;
+        }
+        return $total;
+    }
+
 
 
 
