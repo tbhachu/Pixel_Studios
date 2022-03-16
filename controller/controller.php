@@ -267,6 +267,8 @@ class Controller
 
         //Clear the session data
         session_destroy();
+
+
     }
 
     function admin()
