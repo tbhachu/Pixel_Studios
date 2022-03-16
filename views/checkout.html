@@ -7,7 +7,7 @@
 
     <form id="form" action="#" method="post" class="form-horizontal">
         <div class="row">
-            <div class="col-sm-6" id="div2">
+            <div class="col-sm-4" id="div2">
                 <fieldset>
                     <legend class="align-center">Information</legend>
                     <p id="form1">
@@ -136,28 +136,38 @@
                 </fieldset>
             </div>
 
-            <div class="col-sm-3" id="div1">
+            <div class="col-sm-7" id="div1">
                 <legend>Order Summary</legend>
+
                 <repeat group="{{ @items }}" value="{{ @item }}">
 
-                    <ul class="no-bullets">
-                        <li><b>Title:</b> {{ @item['title'] }}</li>
-                        <li><b>Size:</b> {{ @item['size'] }}</li>
-                        <li><b>Frame:</b> {{ @item['frame'] }}</li>
-                        <li><b>Finish:</b> {{ @item['finish'] }}</li>
-                    </ul>
+
+                    <div class="checkCard">
+                        <img class="card-img-top" src="{{ @item['link'] }}" alt="{{ @item['title'] }}">
+                        <div class="card-body">
+                            <ul class="no-bullets">
+                                <li><b>Title:</b> {{ @item['title'] }}</li>
+                                <li><b>Size:</b> {{ @item['size'] }}</li>
+                                <li><b>Frame:</b> {{ @item['frame'] }}</li>
+                                <li><b>Finish:</b> {{ @item['finish'] }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <br>
+                    </div>
 
                 </repeat>
 
-                <p><b>Total:</b> ${{ @item['price'] }}</p>
-
+                <p class="h2 text-success text-right"><b>Total:</b> ${{ @item['price'] }}</p>
 
             </div>
 
         </div>
 
         <div>
-            <button type="submit" class="btn btn-primary d-block mr-3 ml-auto">Confirm</button>
+            <button type="submit" class="btn btn-success d-block mr-5 ml-auto">Confirm</button>
         </div>
     </form>
     <!-- <a href="{{ @BASE }}">Home Page</a> -->

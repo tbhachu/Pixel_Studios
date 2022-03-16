@@ -1,28 +1,25 @@
 <include href="views/header.html"></include>
 
 <div class="container">
-    <h1>Shopping Cart</h1>
 
-    <div class="container">
+    <div class="container mt-2">
+        <h1>Shopping Cart</h1>
         <form id="form" action="#" method="post" class="form-horizontal">
-            <div class="container" id="div1">
-                <hr>
-
+            <div class="container pt-4" id="div1">
 
                 <div class="row">
                     <repeat group="{{ @items }}" value="{{ @item }}">
-
 
 
                             <!------------------------ List of Products Added to Cart ------------------------->
 
                                 <div class="col-sm-6">
                                     <ul class="no-bullets">
-                                        <li><b>Title:</b> {{ @item['title'] }} </li>
-                                        <li><b>Size:</b> {{ @item['size'] }}</li>
-                                        <li><b>Frame:</b> {{ @item['frame'] }}</li>
-                                        <li><b>Finish:</b> {{ @item['finish'] }}</li>
-                                        <li><b>Price:</b> ${{ @item['price'] }}</li>
+                                        <li class="h4"><b>Title:</b> {{ @item['title'] }} </li>
+                                        <li class="h4"><b>Size:</b> {{ @item['size'] }}</li>
+                                        <li class="h4"><b>Frame:</b> {{ @item['frame'] }}</li>
+                                        <li class="h4"><b>Finish:</b> {{ @item['finish'] }}</li>
+                                        <li class="h2"><b>Price:</b> ${{ @item['price'] }}</li>
                                     </ul>
                                 </div>
 
@@ -32,21 +29,19 @@
                              </div>
                         <p></p>
 
+                        <!--line breaks-->
+                        <div class="col-sm-6">
+                            <hr>
+                        </div>
+                        <div class="col-sm-6">
+                            <br>
+                        </div>
 
-
-
-
-
-
-
-
+                        <!--end repeat-->
                     </repeat>
 
                 </div>
-
-
-
-                <hr><br>
+                <br>
             </div>
 
             <div>
