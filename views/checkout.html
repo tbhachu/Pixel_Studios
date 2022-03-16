@@ -6,61 +6,67 @@
 
 
     <form id="form" action="#" method="post" class="form-horizontal">
-    <div class="row">
-        <div class="col-sm-6" id="div2">
-            <fieldset>
-                <legend class="align-center">Information</legend>
-                <p id="form1">
+        <div class="row">
+            <div class="col-sm-6" id="div2">
+                <fieldset>
+                    <legend class="align-center">Information</legend>
+                    <p id="form1">
                         <!-------------------------------- First Name ------------------------------------->
                     <p>
                         <input type="text" id="fname" name="fname" placeholder="First Name"
-                                      class="form-control col-lg-7"
-                                      value="{{ @fname }}">
+                               class="form-control col-lg-7"
+                               value="{{ @fname }}">
+                        <span class="errJS" id="err-fname"> Please enter first name </span>
                     </p>
-                    <!-- Display an error for first name if there is one -->
+
                     <check if="{{ isset(@errors['fname']) }}">
-                        <span class="err">{{ @errors['fname'] }}</span><br>
+                        <span class="err ml-5 mt-0 pt-0">{{ @errors['fname'] }}</span><br>
                     </check>
+                    <!-- Display an error for first name if there is one -->
 
 
                     <!----------------------------------- Last Name ------------------------------->
                     <p>
-                       <input type="text" id="lname" name="lname" placeholder="Last Name"
-                                     class="form-control col-lg-7"
-                                     value="{{ @lname }}">
+                        <input type="text" id="lname" name="lname" placeholder="Last Name"
+                               class="form-control col-lg-7"
+                               value="{{ @lname }}">
+                        <span class="errJS" id="err-lname"> Please enter last name </span>
                     </p>
                     <!-- Display an error for last name if there is one -->
                     <check if="{{ isset(@errors['lname']) }}">
-                        <span class="err">{{ @errors['lname'] }}</span><br>
+                        <span class="err ml-5 mt-0 pt-0">{{ @errors['lname'] }}</span><br>
                     </check>
 
 
                     <!------------------------------- Phone Number -------------------------------->
                     <p>
                         <input type="text" id="phone" name="phone" placeholder="Phone Number"
-                                       class="form-control col-lg-7"
-                                       value="{{ @number }}">
+                               class="form-control col-lg-7"
+                               value="{{ @number }}">
+                        <span class="errJS" id="err-phone"> Please enter phone number </span>
                     </p>
                     <!-- Display an error for phone number if there is one -->
                     <check if="{{ isset(@errors['phone']) }}">
-                        <span class="err">{{ @errors['phone'] }}</span><br>
+                        <span class="err ml-5 mt-0 pt-0">{{ @errors['phone'] }}</span><br>
                     </check>
 
                     <!------------------------------------ Email---------------------------------------->
                     <p>
-                    <input type="text" id="email" name="email" placeholder="Email Address"
-                           class="form-control col-lg-7">
+                        <input type="text" id="email" name="email" placeholder="Email Address"
+                               class="form-control col-lg-7">
+                        <span class="errJS" id="err-email"> Please enter email </span>
                     </p>
                     <!-- Display an error for email if there is one -->
                     <check if="{{ isset(@errors['email']) }}">
-                        <span class="err">{{ @errors['email'] }}</span><br>
+                        <span class="err ml-5 mt-0 pt-0">{{ @errors['email'] }}</span><br>
                     </check>
 
 
                     <!------------------------------------ Address ----------------------------------->
                     <p>
                         <input type="text" id="address" name="address" placeholder="Address"
-                                      class="form-control col-lg-7">
+                               class="form-control col-lg-7">
+                        <span class="errJS" id="err-address"> Please enter address </span>
                     </p>
                     <!-- Display an error for phone number if there is one -->
                     <check if="{{ isset(@errors['address']) }}">
@@ -68,10 +74,9 @@
                     </check>
 
 
+                    <!-------------------------------- States ----------------------------------->
 
-                        <!-------------------------------- States ----------------------------------->
-
-                    <p> <b>State</b>
+                    <p><b>State</b>
                         <select name="state" id="states">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -128,41 +133,28 @@
                     </p>
 
 
+                </fieldset>
+            </div>
+
+            <div class="col-sm-3" id="div1">
+                <legend>Order Summary</legend>
+                <repeat group="{{ @items }}" value="{{ @item }}">
+
+                    <ul class="no-bullets">
+                        <li><b>Title:</b> {{ @item['title'] }}</li>
+                        <li><b>Size:</b> {{ @item['size'] }}</li>
+                        <li><b>Frame:</b> {{ @item['frame'] }}</li>
+                        <li><b>Finish:</b> {{ @item['finish'] }}</li>
+                    </ul>
+
+                </repeat>
+
+                <p><b>Total:</b> ${{ @item['price'] }}</p>
 
 
-            </fieldset>
-        </div>
-
-        <div class="col-sm-3" id="div1">
-            <legend>Order Summary</legend>
-            <repeat group="{{ @items }}" value="{{ @item }}">
-
-            <!--<div class="container">
-                <ul class="no-bullets">
-                    <li><b>Title:</b> {{ @SESSION.item->getTitle() }} </li>
-                    <li><b>Info:</b> {{ @SESSION.item->getInfo() }}</li>
-                    <li><b>Size:</b> {{ @SESSION.item->getSize() }}</li>
-                    <li><b>Frame:</b> {{ @SESSION.item->getFrame() }}</li>
-                    <li><b>Finish:</b> {{ @SESSION.item->getFinish() }}</li>
-                    <hr><br>
-                    <li><b>Total:</b> {{ @SESSION.item->getPrice() }}</li>
-                </ul>
-            </div>-->
-                <ul class="no-bullets">
-                    <li><b>Title:</b> {{ @item['title'] }} </li>
-                    <li><b>Size:</b> {{ @item['size'] }}</li>
-                    <li><b>Frame:</b> {{ @item['frame'] }}</li>
-                    <li><b>Finish:</b> {{ @item['finish'] }}</li>
-                </ul>
-
-            </repeat>
-
-            <p><b>Total:</b> ${{ @item['price'] }}</p>
-
+            </div>
 
         </div>
-
-    </div>
 
         <div>
             <button type="submit" class="btn btn-primary d-block mr-3 ml-auto">Confirm</button>
