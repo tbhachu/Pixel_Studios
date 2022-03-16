@@ -151,6 +151,7 @@ class Controller
         $items = $GLOBALS['dataLayer']->getCart($_SESSION['customer']);
         $this->_f3->set('items', $items);
 
+
         //If the form has been posted
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
