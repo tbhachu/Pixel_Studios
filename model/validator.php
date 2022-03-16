@@ -84,9 +84,9 @@ class Validator
     static function validFName($fname)
     {
         if(strlen($fname) >= 3 && ctype_alnum($fname)) {
-            return $fname;
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
@@ -97,9 +97,9 @@ class Validator
     static function validLName($lname)
     {
         if(strlen($lname) >= 3 && ctype_alnum($lname)) {
-            return $lname;
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
