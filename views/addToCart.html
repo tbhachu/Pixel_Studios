@@ -12,56 +12,81 @@
                     <img class=" cartImg" src="{{ @SESSION.item->getLink() }}" alt="{{ @SESSION.item->getTitle() }}">
                     <h3 class="productTitle mt-2" id="title" >"{{ @SESSION.item->getTitle() }}"</h3>
                     <h5 class="productInfo mt-2 ml-2" id="info" >{{ @SESSION.item->getInfo() }}</h5>
+                    <br>
 
 
                     <!--get size-->
-                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Size <br>30/40/50/55</br></label>
-                    <div class="col-sm-8">
-                        <repeat group="{{ @sizes }}" value="{{ @size }}">
+                    <label class="col-sm-1 control-label text-left text-primary h3">Size</label>
+                    <a class="ml-0 pl-0">30/40/50/55</a>
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['size']) }}">
+                        <span class="err ml-4">{{ @errors['size'] }}</span>
+                    </check>
+                    <div class="col-sm-3 text-center mr-1 pr-0 mb-3">
+                        <select class="form-select p-1 mb-2" id="size" name="size">
+                            <repeat group="{{ @sizes }}" value="{{ @size }}">
+                                <option class="lead" value="{{ @size }}"> {{ @size }}</option>
+                            </repeat>
+                        </select>
+                        <hr>
+                        <!--<repeat group="{{ @sizes }}" value="{{ @size }}">
                             <label class="text-light"><input class="ml-3" type="radio" name="size" value="{{ @size }}"
                                 <check if="{{ @size == @userSize }}">checked</check>>
                                 {{ @size }}
                             </label>
-                        </repeat>
-
+                        </repeat>-->
                     </div>
 
-                    <!-- Display an error if there is one
-                    <check if="{{ isset(@errors['size']) }}">
-                        <span class="err font-weight-bold">{{ @errors['size'] }}</span>
-                    </check> -->
 
                     <!--get frame-->
-                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Frame Style <br>(silver/gold +10)</br></label>
-                    <div class="col-sm-8">
+                    <label class="col-sm-1 control-label text-left text-primary h3">Frame Style</label>
+                    <a class="ml-0 pl-1">(silver/gold +10)</a>
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['frame']) }}">
+                        <span class="err ml-4">{{ @errors['frame'] }}</span>
+                    </check>
+                    <div class="col-sm-3 text-center mr-0 pr-0 mb-3">
+                        <select class="form-select p-1 mb-2" id="frame" name="frame">
+                            <option class="lead" value="select frame">select frame</option>
+                            <repeat group="{{ @frames }}" value="{{ @frame }}">
+                                <option class="lead" value="{{ @frame }}"> {{ @frame }}</option>
+                            </repeat>
+                        </select>
+                        <hr>
+
+
+                    <!--<div class="col-sm-8">
                         <repeat group="{{ @frames }}" value="{{ @frame }}">
                             <label class="text-light"><input class="ml-3" type="radio" name="frame" value="{{ @frame }}"
                                 <check if="{{ @frame == @userFrame }}">checked</check>>
                                 {{ @frame }}
                             </label>
-                        </repeat>
+                        </repeat>-->
+
+
 
                     </div>
-                    <!-- Display an error if there is one
-                    <check if="{{ isset(@errors['frame']) }}">
-                        <span class="err font-weight-bold">{{ @errors['frame'] }}</span>
-                    </check> -->
+                    <!-- Display an error if there is one -->
 
                     <!--get finish-->
-                    <label class="col-sm-4 control-label text-left font-weight-bold ml-0 pl-0 text-primary">Image Finish <br>(canvas +10)</br></label>
+                    <label class="col-sm-1 control-label text-left text-primary h3">Image Finish</label>
+                    <a class="ml-2 pl-2">(canvas +10)</a>
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['finish']) }}">
+                        <span class="err ml-4">{{ @errors['finish'] }}</span>
+                    </check>
                     <div class="col-sm-8">
                         <repeat group="{{ @finishes }}" value="{{ @finish }}">
-                            <label class="text-light"><input class="ml-3" type="radio" name="finish" value="{{ @finish }}"
+                            <label class="text-light form-check-label"><input class="ml-3 h3" type="radio" name="finish" value="{{ @finish }}"
                                 <check if="{{ @finish == @userFinish }}">checked</check>>
                                 {{ @finish }}
                             </label>
                         </repeat>
 
+
+
                     </div>
-                    <!-- Display an error if there is one
-                    <check if="{{ isset(@errors['finish']) }}">
-                        <span class="err font-weight-bold">{{ @errors['finish'] }}</span>
-                    </check> -->
+
 
 
                     <p class="text-right">
