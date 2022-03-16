@@ -1,10 +1,48 @@
-<include href="views/header.html"></include>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <title>Pixel Studios</title>
+</head>
+
+<body>
+<!-- navigation -->
+<div class="navigation m-auto mt-3">
+    <nav class="navbar fixed-top navbar-expand-sm text-right mt-1">
+
+        <a href="{{ @BASE }}" class="navbar-brand ">
+            <img src="images/logo.png" width="100" height="53" alt="PixelStudios logo">
+        </a>
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" id="hamburg"
+                data-toggle="collapse" data-target="#myTogglerNav"
+                aria-controls="myTogglerNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end pr-4" id="myTogglerNav">
+            <ul class="navbar-nav mx-auto"></ul>
+            <div class="navbar-nav justify-content-center pb-0 mb-0" id="navLinks">
+
+                <a class="nav-item nav-link font-weight-bold h3" href="aboutUs" id="centerLink">About Us</a>
+
+            </div><!-- navbar -->
+        </div><!-- collapse -->
+    </nav><!-- end nav -->
+</div> <!-- end nav -->
 
 <div class="container">
     <h1>Summary</h1>
 
     <div class="container">
-        <form id="form" action="#" method="post" class="form-horizontal">
+
             <div class="div1">
                 <hr>
                 <h4>Thanks for your Order!</h4>
@@ -15,12 +53,11 @@
                     <p>A confirmation email has been sent to <b>{{ @SESSION.customer->getEmail() }}.</b></p>
                 </div>
 
-                <div>
-                    <button type="submit" class="btn btn-primary d-block mr-3 ml-auto">Checkout</button>
+                <div class="text-center">
+                    <a class="btn btn-info mb-3" href="{{ @BASE }}" >Return Home</a>
                 </div>
             </div>
 
-        </form>
     </div>
 </div>
 
