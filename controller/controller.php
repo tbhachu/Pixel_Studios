@@ -72,7 +72,7 @@ class Controller
         $size = "";
         $frame = "";
         $finish = "";
-        $price = 49.99;
+        $price = 0;
 
         //if the form has been posted
         if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -82,7 +82,7 @@ class Controller
             $frame = $_POST['frame'];
             $finish = $_POST['finish'];
 
-            $price = $price;
+            //$price = $price;
 
             //Validate the data
             if(Validator::validSizes($size)) {
