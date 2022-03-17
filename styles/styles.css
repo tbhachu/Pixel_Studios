@@ -169,8 +169,8 @@ hr{
 
 #div1 {
     background-color: #393a3f;
-    padding: 15px;
-    margin-bottom: 20px;
+    /*padding: 15px;
+    margin-bottom: 20px;*/
     box-shadow: 3px 3px 3px grey;
     /*height: 50%;*/
 }
