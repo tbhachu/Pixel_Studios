@@ -150,7 +150,8 @@ class Controller
 
         if(empty($items))
         {
-            $this->_f3->set('noCart', 'Shopping cart is empty!');
+            $this->_f3->set('noCart', 'No items added to cart :(');
+
         }
 
         //If the form has been posted, remove item chosen
