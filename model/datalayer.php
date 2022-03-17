@@ -100,6 +100,33 @@ class DataLayer
         return $result;
     }
 
+    /**
+     * removeItem removes all item user removed from cart
+     * @param $customer object, $title string
+     * @return string The order_id of the inserted row
+     */
+    function removeItem($title, $customer)
+    {
+
+        //1. Define the query
+        $sql = "DELETE FROM ShoppingCart WHERE sessionID = :sessionID AND title = :title;";
+
+        //2. Prepare the statement
+        $statement = $this->_dbh->prepare($sql);
+
+        //3. Bind the parameters
+        $statement->bindParam(':sessionID', $customer->getSessionID());
+        $statement->bindParam(':title', $title);
+
+        //4. Execute the query
+        $statement->execute();
+
+        //5. Process the results (get the primary key)
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
 
 
     /**
