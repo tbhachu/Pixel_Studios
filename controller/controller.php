@@ -36,10 +36,6 @@ class Controller
         $products = $GLOBALS['dataLayer']->getProducts();
         $this->_f3->set('products', $products);
 
-        $title = "";
-        $link = "";
-        $info = "";
-
         //if the form has been posted
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
@@ -67,6 +63,7 @@ class Controller
         //Get the data from the model
         $products = $GLOBALS['dataLayer']->getProducts();
         $this->_f3->set('products', $products);
+
 
         //Initialize input variables
         $size = "";
@@ -151,12 +148,19 @@ class Controller
         $items = $GLOBALS['dataLayer']->getCart($_SESSION['customer']);
         $this->_f3->set('items', $items);
 
+        if(empty($items))
+        {
+            $this->_f3->set('noCart', 'Shopping cart is empty!');
+        }
 
-        //If the form has been posted
+        //If the form has been posted, remove item chosen
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            //Redirect user to Checkout Page
-            $this->_f3->reroute('checkout');
+            $title = $_POST['title'];
+
+            $GLOBALS['dataLayer']->removeItem($title, $_SESSION['customer']);
+            //Redirect user to products Page
+            $this->_f3->reroute('products');
         }
 
 
