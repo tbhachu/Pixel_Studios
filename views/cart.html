@@ -4,57 +4,68 @@
 
     <div class="container mt-2">
         <h1>Shopping Cart</h1>
-        <form id="form" action="#" method="post" class="form-horizontal">
-            <div class="container pt-4" id="div1">
+        <!-- original form location -->
 
-                <div class="row">
-                    <repeat group="{{ @items }}" value="{{ @item }}">
+        <div class="container pt-4" id="div1">
+
+            <!--if cart is empty, display image if it is-->
+            <span class="ml-4 noCart" id="noCart"> {{ @noCart }} </span>
 
 
-                            <!------------------------ List of Products Added to Cart ------------------------->
+                <repeat group="{{ @items }}" value="{{ @item }}">
+                    <form action="#" method="post">
+                        <div class="container row">
 
-                                <div class="col-sm-6">
-                                    <ul class="no-bullets">
-                                        <li class="h4"><b>Title:</b> {{ @item['title'] }} </li>
-                                        <li class="h4"><b>Size:</b> {{ @item['size'] }}</li>
-                                        <li class="h4"><b>Frame:</b> {{ @item['frame'] }}</li>
-                                        <li class="h4"><b>Finish:</b> {{ @item['finish'] }}</li>
-                                        <li class="h2"><b>Price:</b> ${{ @item['price'] }}</li>
-                                    </ul>
-                                </div>
+                        <!------------------------ List of Products Added to Cart ------------------------->
+                        <div class="col-sm-6">
+                            <ul class="no-bullets">
+                                <li class="h4"><b>Title:</b>{{ @item['title'] }}</li>
+                                <input type="hidden" name="title" value="{{ @item['title'] }}">
+                                <li class="h4"><b>Size:</b> {{ @item['size'] }}</li>
+                                <li class="h4"><b>Frame:</b> {{ @item['frame'] }}</li>
+                                <li class="h4"><b>Finish:</b> {{ @item['finish'] }}</li>
+                                <li class="h2"><b>Price:</b> ${{ @item['price'] }}</li>
+                            </ul>
 
-                            <div class="col-sm-6">
+                            <div class="container">
+                                <button class="btn btn-danger mt-2 ml-4" id="{{ @item['Title'] }}" type="submit">
+                                Remove </button>
+                            </div>
 
-                                    <img class="img-fluid mw-50" src="{{ @item['link'] }}" alt="{{ @item['title'] }}">
-                             </div>
-                        <p></p>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <img class="img-fluid mw-50" src="{{ @item['link'] }}" alt="{{ @item['title'] }}">
+                        </div>
 
                         <!--line breaks-->
                         <div class="col-sm-6">
+
+
                             <hr>
                         </div>
                         <div class="col-sm-6">
                             <br>
                         </div>
 
-                        <!--end repeat-->
-                    </repeat>
+                        </div>
 
-                </div>
-                <br>
-            </div>
+                    </form>
 
-            <div>
-                <button type="submit" class="btn btn-primary d-block mr-3 ml-auto" href="checkout">Checkout</button>
-            </div>
-        </form>
+                    <!--end repeat-->
+                </repeat>
+
+
+            <br>
+        </div>
+
+        <div class="text-right">
+            <a class="btn btn-primary mr-3 mt-4 text-right shadow" href="checkout">Checkout</a>
+        </div>
+
     </div>
 </div>
 
-    <!--
-    <a class="btn btn-info mb-3" href="{{ @BASE }}" >Home</a>
-    <a class="btn btn-info mb-3" href="shopCart" >Cart</a>
-    -->
 </div>
 
 
