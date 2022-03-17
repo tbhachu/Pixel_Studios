@@ -6,10 +6,11 @@
         <h1>Shopping Cart</h1>
         <!-- original form location -->
 
-        <div class="container pt-4" id="div1">
+        <div class="container pt-4 pb-2 mb-2" id="div1">
 
             <!--if cart is empty, display image if it is-->
-            <span class="ml-4 noCart" id="noCart"> {{ @noCart }} </span>
+            <span class="ml-4 noCart h3" id="noCart"> {{ @noCart }} </span>
+            <!--<p class="ml-4 noCart" id="noCartImg">{{ @noCartImg }}</p>-->
 
 
                 <repeat group="{{ @items }}" value="{{ @item }}">
