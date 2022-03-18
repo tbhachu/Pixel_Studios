@@ -1,18 +1,20 @@
 # Pixel_Studios
-Photography website for SDEV 328. Group assignment.
+A Photo gallery and art printing storefront.
+
+Created by Tarsem Bhachu and Nathan Arrowsmith
 
 
-Project Requirements
-Your website should have the following features:
 
-1. Separates all database/business logic using the MVC pattern.
-2. Routes all URLs and leverages a templating language using the Fat-Free framework.
-3. Has a clearly defined database layer using PDO and prepared statements. 
-4. Data can be added and viewed.
-5. Has a history of commits from both team members to a Git repository. Commits are clearly commented.
-6. Uses OOP, and utilizes multiple classes, including at least one inheritance relationship.
-7. Contains full Docblocks for all PHP files and follows PEAR standards.
-8. Has full validation on the client side through JavaScript and server side through PHP.
-9. All code is clean, clear, and well-commented. DRY (Don't Repeat Yourself) is practiced.
-10. Your submission shows adequate effort for a final project in a full-stack web development course.
-BONUS:  Incorporates Ajax that access data from a JSON file, PHP script, or API. If you implement Ajax, be sure to include how you did so in your readme file.
+Our website features the following:
+
+1. Validation functions and Database push/pull methods can be found in the model directory. All pages are routed through the Controller class in the Controller directory. 
+2. Fat-Free object instantiated in the Controller class and all pages are routed through the Controller class in the Controller directory. 
+3. Datalayer class in the model directory contains all database functions with prepared SQL statements. 
+4. Calls to send/retrieve data to the database can be found in the controller. Dynamic table reads can be seen on the cart page. 
+5. 124 total commits to this repo. 
+6. This page makes use of 2 separate classes, a Customer object which stores all customer information and an Item object used for tracking individual products a customer picks out. 
+7. Docblocks found in the datalayer are detailed and specific. 
+8. Client side validation called from the script.js file, server side validation called in the controller. 
+9. Code is commented as clearly as possible, and efforts were taken to condense code into as many functions as possible. 
+
+
