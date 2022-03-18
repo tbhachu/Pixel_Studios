@@ -17,4 +17,58 @@ Our website features the following:
 8. Client side validation called from the script.js file, server side validation called in the controller. 
 9. Code is commented as clearly as possible, and efforts were taken to condense code into as many functions as possible. 
 
+CLASS DESCRIPTIONS
+
+Item
+
+Title
+Link
+Info
+Size
+Frame
+Finish
+price
++ getTitle
++ setTitle
++ getLink
++ setLink
++ getInfo
++ setInfo
++ getSize
++ setSize
++ getFrame
++ setFrame
++ getFinish
++ setFinish
++ getPrice
++ setPrice
+
+Customer
+
+fname
+lname
+phone
+email
+Address
+state
+sessionID
++ getSessionID
++ setSessionID
++ getFirstName
++ setFirstName
++ getLastName
++ setLastName
++ getEmail
++ setEmail
++ getPhone
++ setPhone
++ getAddress
++ setAddress
++ getState
++ setState
+
+
+
+
+
 
